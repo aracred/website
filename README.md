@@ -1,4 +1,4 @@
-![](images/aracred-logo.png)
+![](https://avatars3.githubusercontent.com/u/63201387?s=200&v=4)
 
 # AraCred
 
