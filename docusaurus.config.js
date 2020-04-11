@@ -39,12 +39,16 @@ module.exports = {
               to: 'blog',
             },
             {
-              label: 'Style Guide',
-              to: 'docs/doc1',
+              label: 'Overview',
+              to: 'docs/aracred',
             },
             {
-              label: 'Second Doc',
-              to: 'docs/doc2',
+              label: 'Tokeneconomics',
+              to: 'docs/tokeneconomics-overview',
+            },
+            {
+              label: 'Deployment',
+              to: 'docs/deoployment-overview',
             },
           ],
         },
@@ -52,12 +56,12 @@ module.exports = {
           title: 'Contribute',
           items: [
             {
-              label: 'GitHub',
-              href: 'https://github.com/aracred',
-            },
-            {
               label: 'Discord',
               href: 'https://discord.gg/nG4Ew2Y',
+            },
+            {
+              label: 'GitHub',
+              href: 'https://github.com/aracred',
             },
           ],
         },
