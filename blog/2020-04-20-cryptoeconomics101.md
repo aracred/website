@@ -43,3 +43,5 @@ The mechanisms are the words, and the design patterns are the sentences. The mor
 ### 5: Test IRL
 
 Theory only gets us so far. We need to start dogfooding the system in controlled and low-risk experiments. Then we can recycle our learnings back into improving the design and trying a new experiment. Yay science.
+
+> Special thanks to Michael Zargham for walking me through all of this!
