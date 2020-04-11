@@ -6,23 +6,35 @@ sidebar_label: Token Economy Overview
 
 import useBaseUrl from '@docusaurus/useBaseUrl'; // Add to the top of the file below the front matter.
 
-...
-
-<img alt="Token Economy Whiteboard" src={useBaseUrl('img/token-economy-whiteboard.png')} />;
-
-[https://s3-us-west-2.amazonaws.com/secure.notion-static.com/13d1fb3d-ce99-4a91-a820-bc4a1a30fc46/Grain_Dynamics.pdf](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/13d1fb3d-ce99-4a91-a820-bc4a1a30fc46/Grain_Dynamics.pdf)
+<img alt="Token Economy Whiteboard" src={useBaseUrl('img/token-economy-whiteboard.png')} />
 
 > Initial whiteboard sketch
 
-[Click here to explore and/or fork the diagram](https://www.lucidchart.com/invitations/accept/53bb9538-8ec1-472a-a955-8ff0b09b06b6)
+<img alt="Grain Dynamics" src={useBaseUrl('img/grain-dynamics.png')} />
 
-## SourceCred Community Economy
+> [Click here to explore and/or fork the diagram](https://www.lucidchart.com/invitations/accept/53bb9538-8ec1-472a-a955-8ff0b09b06b6)
+
+export const Highlight = ({children, color}) => (
+  <h2>
+    <span
+        style={{
+        backgroundColor: color,
+        borderRadius: '2px',
+        color: '#fff',
+        padding: '0.2rem',
+        }}>
+        {children}
+    </span>
+  </h2>
+);
+
+<Highlight color="blue">In-game Economy</Highlight>
 
 *The SourceCred Community Economy bubble on the top left.*
 
 For the purposes of this exercise SourceCred is treated as a black box. We assume that a community using SourceCred has configured it across platforms (Discord, Discourse, GitHub, etc...), tuned the weights, etc... The important thing here is that SourceCred outputs scores that we can then use to mint Grain on-chain. 
 
-## Token Governence
+<Highlight color="pink">Token Governance</Highlight>
 
 *The Access Rights section in the top of the diagram.*
 
@@ -39,7 +51,7 @@ The governance mechanism for minting and burning of tokens could be any of the f
 - Multi-sig
 - DAO
 
-## ERC-20 Token Market
+<Highlight color="orange">On-chain Token Market</Highlight>
 
 The primary Grain Market is assumed to be an automated market mechanism such as a [bonding curve](https://discourse.sourcecred.io/t/bonding-curve-references/271). This solves the bootstrapping problem allowing the market to exist in a permissionless way. Uniswap is the most readily available of these mechanisms available in the wild, but this could also be an [Aragon Fundraising DAO](https://fundraising.aragon.black/). The benefit of modeling this using Uniswap is that it is a generic mechanism that allows anyone to setup a Grain market regardless of the on-chain contract/system they use to mint Grain.
 
@@ -50,7 +62,7 @@ Some notes on Uniswap:
 - An oracle is then needed to get the price of ETH, and then you can easily calculate the "market cap" of that token based on the ETH in the pool.
 - So the value of your pool tokens = market cap of token / your percentage of the pool
 
-## The Larger Game
+<Highlight color="green">Fiat Markets</Highlight>
 
 The larger game nests economic systems. It's economics all the way down.
 
