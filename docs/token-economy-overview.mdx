@@ -30,9 +30,9 @@ export const Highlight = ({children, color}) => (
 
 <Highlight color="blue">In-game Economy</Highlight>
 
-*The SourceCred Community Economy bubble on the top left.*
+*The In-game Community Economy bubble on the top left.*
 
-For the purposes of this exercise SourceCred is treated as a black box. We assume that a community using SourceCred has configured it across platforms (Discord, Discourse, GitHub, etc...), tuned the weights, etc... The important thing here is that SourceCred outputs scores that we can then use to mint Grain on-chain. 
+For the purposes of this exercise the in-game economy is treated as a black box. We assume that an algorithm that gives players points based on rules of a game is configured to the satisfaction of players and that it produces scores that we can mint tokens from. This could be SourceCred, a simple nomination bot, or any other type of system.
 
 <Highlight color="pink">Token Governance</Highlight>
 
@@ -41,22 +41,19 @@ For the purposes of this exercise SourceCred is treated as a black box. We assum
 We then have the governance mechanism that determines how tokens are minted/burned. 
 
 The mechanism itself could be:
-
 - a standalone token contract
 - a DAO that can mint shares
 
 The governance mechanism for minting and burning of tokens could be any of the following:
-
 - Admin key
 - Multi-sig
 - DAO
 
 <Highlight color="orange">On-chain Token Market</Highlight>
 
-The primary Grain Market is assumed to be an automated market mechanism such as a [bonding curve](https://discourse.sourcecred.io/t/bonding-curve-references/271). This solves the bootstrapping problem allowing the market to exist in a permissionless way. Uniswap is the most readily available of these mechanisms available in the wild, but this could also be an [Aragon Fundraising DAO](https://fundraising.aragon.black/). The benefit of modeling this using Uniswap is that it is a generic mechanism that allows anyone to setup a Grain market regardless of the on-chain contract/system they use to mint Grain.
+The primary token market is assumed to be an automated market mechanism such as a [bonding curve](https://discourse.sourcecred.io/t/bonding-curve-references/271). This solves the bootstrapping problem allowing the market to exist in a permissionless way. [Uniswap](https://uniswap.exchange/) is the most readily available of these mechanisms, but this could also be an [Aragon Fundraising DAO](https://fundraising.aragon.black/) or some other type of market maker. The benefit of modeling this using Uniswap is that it is a generic mechanism that allows anyone to setup a token market regardless of the on-chain contract/system they use to mint tokens.
 
-Some notes on Uniswap:
-
+Some notes on Uniswap V1:
 - The "fee" is just a bit of each transaction that stays in the pool. Liquidity providers are entitled to a portion of the pool relative to how much liquidity they provided. As the pool grows, the total value that a liquidity provider has claims on increases.
 - If the pool is an ETH pair it's really just 2X the amount of ETH in the pool because the ERC-20 in the pool must always equal the ETH on the other side of that market.
 - An oracle is then needed to get the price of ETH, and then you can easily calculate the "market cap" of that token based on the ETH in the pool.
@@ -65,11 +62,10 @@ Some notes on Uniswap:
 <Highlight color="green">Fiat Markets</Highlight>
 
 The larger game nests economic systems. It's economics all the way down.
-
-- The local SourceCred economy
-- The primary Grain market
-- The secondary Grain market
+- The in-game economy
+- The primary token market
+- The secondary token market
 - The broader Ethereum economy
 - The global fiat economy
 
-All of these markets affect the prices of each other. For example, if there is a Grain/ETH Uniswap pool the value of your token will fluctuate as ETH prices fluctuate. Furthermore, if your token is cheap it becomes very easy to 51% attack either the token itself of the market/liquidity-pool for the token.
+All of these markets affect the prices of each other. For example, if there is a token/ETH Uniswap pool the value of your token will fluctuate as ETH prices fluctuate. Furthermore, if your token is cheap it becomes very easy to 51% attack either the token itself of the market/liquidity-pool for the token. For this reaon it is important that the tokeneconomics of the system are robust against both intentional attacks and market fluctuations. We explore these in the next section.
