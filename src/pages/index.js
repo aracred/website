@@ -6,6 +6,7 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import styles from './styles.module.css';
 
+// Features
 const features = [
   {
     title: <>Recognize and Reward Community Contributors</>,
@@ -35,7 +36,6 @@ const features = [
     ),
   },
 ];
-
 function Feature({imageUrl, title, description}) {
   const imgUrl = useBaseUrl(imageUrl);
   return (
@@ -51,6 +51,7 @@ function Feature({imageUrl, title, description}) {
   );
 }
 
+// Main page
 function Home() {
   const context = useDocusaurusContext();
   const {siteConfig = {}} = context;

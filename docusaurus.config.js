@@ -35,15 +35,15 @@ module.exports = {
           title: 'Info',
           items: [
             {
-              label: 'Overview',
+              label: '🗺️ Overview',
               to: 'docs/aracred',
             },
             {
-              label: 'Tokeneconomics',
+              label: '💸 Tokeneconomics',
               to: 'docs/tokeneconomics-overview',
             },
             {
-              label: 'Deployment',
+              label: '🚀 Deployment',
               to: 'docs/deoployment-overview',
             },
           ],
@@ -52,11 +52,11 @@ module.exports = {
           title: 'Contribute',
           items: [
             {
-              label: 'Discord',
+              label: '💡 Share ideas',
               href: 'https://discord.gg/nG4Ew2Y',
             },
             {
-              label: 'GitHub',
+              label: '💻 Lay down code',
               href: 'https://github.com/aracred',
             },
           ],
@@ -65,15 +65,15 @@ module.exports = {
           title: 'Friends & Family',
           items: [
             {
-              label: 'SourceCred',
-              href: 'https://sourcecred.io/',
-            },
-            {
-              label: 'Aragon',
+              label: '🦅 Aragon',
               href: 'https://aragon.org/',
             },
             {
-              label: 'MetaGame',
+              label: '🌱 SourceCred',
+              href: 'https://sourcecred.io/',
+            },
+            {
+              label: '🐙 MetaGame',
               href: 'https://metagame.wtf/',
             }
           ],
