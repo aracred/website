@@ -5,7 +5,7 @@
  */
 
 .heroBanner {
-  padding: 4rem 0;
+  padding: 5rem 0;
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -13,7 +13,7 @@
 
 @media screen and (max-width: 966px) {
   .heroBanner {
-    padding: 2rem;
+    padding: 5rem;
   }
 }
 
@@ -26,11 +26,19 @@
 .features {
   display: flex;
   align-items: center;
-  padding: 2rem 0;
+  padding: 5rem;
   width: 100%;
 }
 
 .featureImage {
   height: 200px;
   width: 200px;
+}
+
+.showcaseUser {
+  height: 100%;
+}
+
+.userAvatars {
+  border-radius: "50%";
 }
