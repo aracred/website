@@ -1,0 +1,63 @@
+---
+id: tokenEconomyOverview 
+title: Token Economy Overview
+sidebar_label: Token Economy Overview
+---
+
+<img alt="Token Economy Whiteboard" src={useBaseUrl('img/token-economy-whiteboard.png')} />;
+
+> Initial whiteboard sketch
+
+[https://s3-us-west-2.amazonaws.com/secure.notion-static.com/13d1fb3d-ce99-4a91-a820-bc4a1a30fc46/Grain_Dynamics.pdf](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/13d1fb3d-ce99-4a91-a820-bc4a1a30fc46/Grain_Dynamics.pdf)
+
+> Temp PDF!
+
+[Grain Dynamics](https://www.lucidchart.com/invitations/accept/53bb9538-8ec1-472a-a955-8ff0b09b06b6)
+
+> Live digital diagram
+
+## SourceCred Community Economy
+
+*The SourceCred Community Economy bubble on the top left.*
+
+For the purposes of this exercise SourceCred is treated as a black box. We assume that a community using SourceCred has configured it across platforms (Discord, Discourse, GitHub, etc...), tuned the weights, etc... The important thing here is that SourceCred outputs scores that we can then use to mint Grain on-chain. 
+
+## Grain Governence
+
+*The Access Rights section in the top of the diagram.*
+
+We then have the governance mechanism that determines how tokens are minted/burned. 
+
+The mechanism itself could be:
+
+- a standalone token contract
+- a DAO that can mint shares
+
+The governance mechanism for minting and burning of tokens could be any of the following:
+
+- Admin key
+- Multi-sig
+- DAO
+
+## ERC-20 Grain Market
+
+The primary Grain Market is assumed to be an automated market mechanism such as a [bonding curve](https://discourse.sourcecred.io/t/bonding-curve-references/271). This solves the bootstrapping problem allowing the market to exist in a permissionless way. Uniswap is the most readily available of these mechanisms available in the wild, but this could also be an [Aragon Fundraising DAO](https://fundraising.aragon.black/). The benefit of modeling this using Uniswap is that it is a generic mechanism that allows anyone to setup a Grain market regardless of the on-chain contract/system they use to mint Grain.
+
+Some notes on Uniswap:
+
+- The "fee" is just a bit of each transaction that stays in the pool. Liquidity providers are entitled to a portion of the pool relative to how much liquidity they provided. As the pool grows, the total value that a liquidity provider has claims on increases.
+- If the pool is an ETH pair it's really just 2X the amount of ETH in the pool because the ERC-20 in the pool must always equal the ETH on the other side of that market.
+- An oracle is then needed to get the price of ETH, and then you can easily calculate the "market cap" of that token based on the ETH in the pool.
+- So the value of your pool tokens = market cap of token / your percentage of the pool
+
+## The Larger Game
+
+The larger game nests economic systems. It's economics all the way down.
+
+- The local SourceCred economy
+- The primary Grain market
+- The secondary Grain market
+- The broader Ethereum economy
+- The global fiat economy
+
+All of these markets affect the prices of each other. For example, if there is a Grain/ETH Uniswap pool the value of your token will fluctuate as ETH prices fluctuate. Furthermore, if your token is cheap it becomes very easy to 51% attack either the token itself of the market/liquidity-pool for the token.
