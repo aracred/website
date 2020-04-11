@@ -8,5 +8,10 @@ sidebar_label: Aragon
 
 > Aragon empowers you to freely organize and collaborate without borders or intermediaries. Create global, bureaucracy-free organizations, companies, and communities.
 
+Aragon is a digital jurisdiction that enables anyone anywhere to coordinate freely. For the first time people can unite around an idea, raise funds to solve problems, and work together to create value regardless of their geographic location. Aragon provides tools and frameworks that make this easy.
 
+Software is eating the world and the world is becoming ever more connected. We need ways to coordinate and collaborate with people we don't know or trust. By leveraging blockchain technology Aragon has created an operating system for decentralized organizations. People can now easily design, deploy, and use digital organizations to manage shared digital resources.
 
+While digital first blockchain organizations are amazing, not all things can be written in code. The Aragon Court addresses this by allowing decentralized organizations to create human readable contracts that cab be enforced in a decentralized way. This way, Aragon not only provides the frameworks to build and manage organizations, but also to resolve disputes between them. The result is digital jurisdictions with digital organizations that are global from day one. This has the potential to improve cooperation and coordination at an unprecedented scale.
+
+> If you want to learn more about Aragon, the latest and greatest info can be found on https://aragon.org/

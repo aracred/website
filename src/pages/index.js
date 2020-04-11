@@ -9,7 +9,7 @@ import styles from './styles.module.css';
 // Features
 const features = [
   {
-    title: <>Recognize and Reward Community Contributors</>,
+    title: <>Better For Everyone</>,
     imageUrl: 'img/sc-logo-new.png',
     description: (
       <>
@@ -31,7 +31,7 @@ const features = [
     imageUrl: 'img/logo.png',
     description: (
       <>
-        AraCred runs SourceCred on all the things, then mints tokens for contributors in an Aragon DAO. This way your community is recognized, rewarded, and empowered in return for their contributions. 
+        AraCred runs SourceCred on all the things, then mints tokens for contributors in an Aragon DAO. This way your community is recognized, rewarded, and empowered based on their contributions. 
       </>
     ),
   },
