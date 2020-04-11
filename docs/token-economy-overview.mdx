@@ -4,17 +4,17 @@ title: Token Economy Overview
 sidebar_label: Token Economy Overview
 ---
 
-<img alt="Token Economy Whiteboard" src={useBaseUrl('img/token-economy-whiteboard.png')} />;
+import useBaseUrl from '@docusaurus/useBaseUrl'; // Add to the top of the file below the front matter.
 
-> Initial whiteboard sketch
+...
+
+<img alt="Token Economy Whiteboard" src={useBaseUrl('img/token-economy-whiteboard.png')} />;
 
 [https://s3-us-west-2.amazonaws.com/secure.notion-static.com/13d1fb3d-ce99-4a91-a820-bc4a1a30fc46/Grain_Dynamics.pdf](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/13d1fb3d-ce99-4a91-a820-bc4a1a30fc46/Grain_Dynamics.pdf)
 
-> Temp PDF!
+> Initial whiteboard sketch
 
-[Grain Dynamics](https://www.lucidchart.com/invitations/accept/53bb9538-8ec1-472a-a955-8ff0b09b06b6)
-
-> Live digital diagram
+[Click here to explore and/or fork the diagram](https://www.lucidchart.com/invitations/accept/53bb9538-8ec1-472a-a955-8ff0b09b06b6)
 
 ## SourceCred Community Economy
 
@@ -22,7 +22,7 @@ sidebar_label: Token Economy Overview
 
 For the purposes of this exercise SourceCred is treated as a black box. We assume that a community using SourceCred has configured it across platforms (Discord, Discourse, GitHub, etc...), tuned the weights, etc... The important thing here is that SourceCred outputs scores that we can then use to mint Grain on-chain. 
 
-## Grain Governence
+## Token Governence
 
 *The Access Rights section in the top of the diagram.*
 
@@ -39,7 +39,7 @@ The governance mechanism for minting and burning of tokens could be any of the f
 - Multi-sig
 - DAO
 
-## ERC-20 Grain Market
+## ERC-20 Token Market
 
 The primary Grain Market is assumed to be an automated market mechanism such as a [bonding curve](https://discourse.sourcecred.io/t/bonding-curve-references/271). This solves the bootstrapping problem allowing the market to exist in a permissionless way. Uniswap is the most readily available of these mechanisms available in the wild, but this could also be an [Aragon Fundraising DAO](https://fundraising.aragon.black/). The benefit of modeling this using Uniswap is that it is a generic mechanism that allows anyone to setup a Grain market regardless of the on-chain contract/system they use to mint Grain.
 
