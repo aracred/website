@@ -4,8 +4,6 @@ title: AraCred
 sidebar_label: AraCred
 ---
 
-Aragon + SourceCred = AraCred.
-
 ![AraCred Logo](https://avatars3.githubusercontent.com/u/63201387?s=200&v=4)
 
 > AraCred = Aragon + SourceCred.

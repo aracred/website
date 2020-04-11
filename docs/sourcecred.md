@@ -4,5 +4,14 @@ title: SourceCred
 sidebar_label: SourceCred
 ---
 
-Stuff about SourceCred goes here.
+![](https://aracred.github.io/website/img/sc-logo-new.png)
 
+> SourceCred allows you to measure and manage contributions to an endeavor.
+
+SourceCred is a reputation protocol for open collaboration. At a basic level, SourceCred tracks the contributions that are made to a community project. It does this by assigning each contribution and contributor a score, called "Cred", based on the contributions' value to the project.
+
+The way SourceCred works is that it organizes the contribution history of a project into a [graph](https://en.wikipedia.org/wiki/Graph_theory). Nodes on the graph represent contributions. SourceCred then runs a modified [PageRank algorithm](https://en.wikipedia.org/wiki/Graph_theory) on the graph to produce scores for each node. Every time a contribution is referenced it increases the importance of that node. Nodes that are referenced a lot will have a lot of credibility in the graph.
+
+We call the scores for nodes on a SourceCred graph "Cred." As people make contributions the scores of nodes on the graph will change. This makes the graph like a living system and Cred like a force of nature within that system. You can think of Cred like a liquid that "flows" through the graph towards important nodes. Nodes can be contributions or contributors. If you (a node) contribute to something that is important (another node), then Cred will flow to that contribution and then to you. This incentivizes positive-sum collaboration where contributions can synergize into something greater than the sum of their parts, and as a result create more value for contributors and consumers overall.
+
+> If you want to learn more about SourceCred all of the most up to date information can be found on https://sourcecred.io/.
