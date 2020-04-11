@@ -35,10 +35,6 @@ module.exports = {
           title: 'Info',
           items: [
             {
-              label: 'Blog',
-              to: 'blog',
-            },
-            {
               label: 'Overview',
               to: 'docs/aracred',
             },
