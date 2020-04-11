@@ -1,8 +1,8 @@
 module.exports = {
   title: 'AraCred',
   tagline: 'Aragon + SourceCred',
-  url: 'https://aracred.dev',
-  baseUrl: '/',
+  url: 'https://aracred.github.io',
+  baseUrl: '/website/',
   favicon: 'img/favicon.ico',
   organizationName: 'aracred', // Usually your GitHub org/user name.
   projectName: 'website', // Usually your repo name.
