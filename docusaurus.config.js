@@ -60,6 +60,10 @@ module.exports = {
               label: '💻 Lay down code',
               href: 'https://github.com/aracred',
             },
+            {
+              label: '🦅 Engage in governance',
+              href: 'https://mainnet.aragon.org/#/aracredmvp/',
+            },
           ],
         },
         {
