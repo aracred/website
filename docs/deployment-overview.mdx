@@ -1,7 +1,198 @@
 ---
 id: deploymentOverview
-title: AraCred Deployment Overview
-sidebar_label: AraCred Deployment Overview
+title: AraCred Manual Deployment
+sidebar_label: AraCred Manual Deployment
 ---
 
-Stuff on how to deploy AraCred in the wild goes here.
+import useBaseUrl from '@docusaurus/useBaseUrl'; // Add to the top of the file below the front matter.
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+> This is how to deploy your own AraCred instance on manual mode. 
+
+# Prerequisites
+
+- A [computer](https://en.wikipedia.org/wiki/Computer) connected to the [internet](https://en.wikipedia.org/wiki/Internet).
+- An [Ethereum address](https://metamask.io/) with some [ETH](https://www.sendwyre.com/).
+- An [Aragon DAO](https://mainnet.aragon.org/#/create). (You'll need at least 0.1 ETH to deploy your own DAO)
+- A [GitHub](https://github.com/) account.
+- An [Infura](https://infura.io/) account.
+
+# Step 0: Basic setup (Required)
+
+<Tabs
+  defaultValue="fork"
+  values={[
+    { label: 'Fork AraCred', value: 'fork', },
+    { label: 'Enable GitHub Actions', value: 'actions', },
+    { label: 'Export Private Key', value: 'pk', },
+    { label: 'Infura', value: 'infura', },
+  ]
+}>
+    <TabItem value="fork">
+        <img alt="Fork AraCred Repo" src={useBaseUrl('img/fork.png')} />
+        <h3><a href="https://github.com/aracred/AraCred">Fork the Aracred GitHub repo</a></h3>
+    </TabItem>
+    <TabItem value="actions">
+        <img alt="Enable GitHub Actions" src={useBaseUrl('img/actions.png')} />
+        <p>You'll need to go into the "Settings" section of the forked AraCred repo, then click on "Actions".</p>
+        <p>More info on GitHub Actions can be found <a href="https://help.github.com/en/actions/getting-started-with-github-actions/about-github-actions">here.</a></p>
+    </TabItem>
+    <TabItem value="pk">
+        <img alt="Export Private Key" src={useBaseUrl('img/metamask.png')} />
+        <p>Learn how to export your Metamask private key <a href="https://metamask.zendesk.com/hc/en-us/articles/360015289632-How-to-Export-an-Account-Private-Key">here.</a></p>
+    </TabItem>
+    <TabItem value="infura">
+        <img alt="Infura Setup" src={useBaseUrl('img/infura.png')} />
+        <p>Learn how to get started with Infura <a href="https://blog.infura.io/getting-started-with-infura-28e41844cc89/">here.</a></p>
+    </TabItem>
+</Tabs>
+
+# Step 1: Connect Your DAO to AraCred (Required)
+
+## Create A DAO
+
+<Tabs
+  defaultValue="step0"
+  values={[
+    { label: 'Start Here', value: 'step0', },
+    { label: 'Step 1', value: 'step1', },
+    { label: 'Step 2', value: 'step2', },
+    { label: 'Step 3', value: 'step3', },
+    { label: 'Step 4', value: 'step4', },
+    { label: 'Step 5', value: 'step5', },
+    { label: 'Step 6', value: 'step6', },
+    { label: 'Step 7', value: 'step7', },
+    { label: 'Step 8', value: 'step8', },
+  ]
+}>
+    <TabItem value="step0">
+        <img alt="Step 0" src={useBaseUrl('img/deploy-dao-0.png')} />
+    </TabItem>
+    <TabItem value="step1">
+        <img alt="Step 1" src={useBaseUrl('img/deploy-dao-1.png')} />
+    </TabItem>
+    <TabItem value="step2">
+        <img alt="Step 2" src={useBaseUrl('img/deploy-dao-2.png')} />
+    </TabItem>
+    <TabItem value="step3">
+        <img alt="Step 3" src={useBaseUrl('img/deploy-dao-3.png')} />
+    </TabItem>
+    <TabItem value="step4">
+        <img alt="Step 4" src={useBaseUrl('img/deploy-dao-4.png')} />
+    </TabItem>
+    <TabItem value="step5">
+        <img alt="Step 5" src={useBaseUrl('img/deploy-dao-5.png')} />
+    </TabItem>
+    <TabItem value="step6">
+        <img alt="Step 6" src={useBaseUrl('img/deploy-dao-6.png')} />
+    </TabItem>
+    <TabItem value="step7">
+        <img alt="Step 7" src={useBaseUrl('img/deploy-dao-7.png')} />
+    </TabItem>
+    <TabItem value="step8">
+        <img alt="Step 8" src={useBaseUrl('img/deploy-dao-8.png')} />
+    </TabItem>
+</Tabs>
+
+## Connect Your DAO to AraCred
+
+<Tabs
+  defaultValue="template"
+  values={[
+    { label: '`dao.json`', value: 'template', },
+    { label: 'Get DAO Params', value: 'dao-params', },
+    { label: 'Update `dao.json`', value: 'update-dao-json', },
+  ]
+}>
+    <TabItem value="template">
+        <img alt="DAO Parms Template" src={useBaseUrl('img/dao-params-template.png')} />
+        <p>You'll need to update dao.json with the parameters of your new Aragon DAO.</p>
+    </TabItem>
+    <TabItem value="dao-params">
+        <img alt="Get DAO Params" src={useBaseUrl('img/dao-params.png')} />
+    </TabItem>
+    <TabItem value="update-dao-json">
+        <img alt="Update DAO Params" src={useBaseUrl('img/dao-params-example.png')} />
+        <p>See how the fields from the DAO are now in `dao.json`.</p>
+    </TabItem>
+</Tabs>
+
+# Step 2: Connect GitHub (Optional)
+
+> If you don't want to connect AraCred to GitHub you'll have to remove all GitHub related info from `project.json`.
+
+<Tabs
+  defaultValue="open"
+  values={[
+    { label: 'Open project.json', value: 'open', },
+    { label: 'Add GitHub Repos', value: 'add-github-repos', },
+    { label: 'Add GitHub Usernames', value: 'add-github-usernames', },
+  ]
+}>
+    <TabItem value="open">
+        <img alt="Open `project.json`" src={useBaseUrl('img/open-project-json.png')} />
+    </TabItem>
+    <TabItem value="add-github-repos">
+        <img alt="Add GitHub Repos" src={useBaseUrl('img/add-github-repos.png')} />
+    </TabItem>
+    <TabItem value="add-github-usernames">
+        <img alt="Add GitHub Usernames" src={useBaseUrl('img/add-github-usernames.png')} />
+    </TabItem>
+</Tabs>
+
+# Step 3: Connect Discord (Optional)
+
+> If you don't want to connect AraCred to Discord you'll have to remove all GitHub related info from `project.json`.
+
+<Tabs
+  defaultValue="enable-dev-mode"
+  values={[
+    { label: 'Enable Developer Mode', value: 'enable-dev-mode', },
+    { label: 'Build A Bot', value: 'build-a-bot', },
+    { label: 'Connect Bot to GitHub', value: 'connect-bot-github', },
+    { label: 'Connect Discord to AraCred', value: 'connect-discord-aracred', },
+    { label: 'Add Discord UserIDs to AraCred', value: 'add-discord-ids', },
+  ]
+}>
+    <TabItem value="enable-dev-mode">
+        <img alt="Enable Developer Mode" src={useBaseUrl('img/discord-dev-mode.png')} />
+        <h3><a href="https://support.discordapp.com/hc/en-us/articles/206346498-Where-can-I-find-my-User-Server-Message-ID-">Enable Discord Developer Mode</a></h3>
+    </TabItem>
+    <TabItem value="build-a-bot">
+        <img alt="Build A Bot" src={useBaseUrl('img/build-a-bot.png')} />
+        <h3><a href="https://github.com/reactiflux/discord-irc/wiki/Creating-a-discord-bot-&-getting-a-token">Create a Discord bot</a> and give it the permission to read messages.</h3>
+    </TabItem>
+    <TabItem value="connect-bot-github">
+        <img alt="Connect Bot to GitHub" src={useBaseUrl('img/secrets.png')} />
+        <h3>Add the bot's token to the GitHub secrets for your forked TheSource repo. The token must be called: SOURCECRED_DISCORD_TOKEN.</h3>
+    </TabItem>
+    <TabItem value="connect-discord-aracred">
+        <img alt="Connect Discord to AraCred" src={useBaseUrl('img/connect-discord-aracred.png')} />
+        <h3>The guildID is the Discord server ID. If you have developer mode enabled you can right click to copypasta this parameter.</h3>
+    </TabItem>
+    <TabItem value="add-discord-ids">
+        <img alt="Add Discord UserIDs to AraCred" src={useBaseUrl('img/add-discord-ids.png')} />
+        <h3>If you have developer mode enabled you can right click on any Discord users to copypasta this parameter.</h3>
+    </TabItem>
+</Tabs>
+
+# Step 4: Connect Discourse (Optional)
+
+> If you don't want to connect AraCred to Discourse you'll have to remove all GitHub related info from `project.json`.
+
+<Tabs
+  defaultValue="add-discourse"
+  values={[
+    { label: 'Add Discourse Forum', value: 'add-discourse', },
+    { label: 'Add Discourse Usernames', value: 'add-discourse-usernames', },
+  ]
+}>
+    <TabItem value="add-discourse">
+        <img alt="Add Discourse Forum" src={useBaseUrl('img/add-discourse.png')} />
+    </TabItem>
+    <TabItem value="add-discourse-usernames">
+        <img alt="Add Discourse Usernames" src={useBaseUrl('img/add-discourse-usernames.png')} />
+    </TabItem>
+</Tabs>
+
