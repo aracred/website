@@ -7,3 +7,25 @@ sidebar_label: Token Minting And Supply
 import useBaseUrl from '@docusaurus/useBaseUrl'; // Add to the top of the file below the front matter.
 
 Talk about how the supply schedule is super important as well as various governance mechansims (voting, court, validators) that can ensure that minting is done in a fair and reasonable way.
+
+## Ideas 
+
+> What follows are rough ideas, not final docs. They have to go somewhere, however, so here we go!
+
+The thing with tokens on a bonding curve is that they're only worth the underlying collateral and/or the market price. So if you mint more Cred that will lead to more tokens, which will dilute current token holders. So there's no reason to hold tokens. Beyond that, once you burn tokens for boosting you deflate the supply, making current (and soon to be minted) tokens more valuable. So **the trick is making sure people want to buy and use tokens because when they do, they put collateral in the market without increasing the token supply.** The biggest risk here is actually that creating too much Cred and not having enough buyers will dilute the value of tokens, making people not want to contribute to earn them, making people not want to buy them to incentivize contributors.
+
+*So you actually want and need more buyers in order for the market to function because buyers will burn their tokens and leave collateral in the redemption pool for contributors.*
+
+Without organic price discovery as well as a mint/burn mechanism you can't actually create a token market.
+
+The current purpose of tokens is price discovery. It's a proxy for the value of engaging with the players in a game. You can achieve this in two ways:
+- Keep the price of tokens fixed, but the supply dynamic. This way as you mint/burn Grain it's value is based on the amount of value in the collateral pool (1 token = collateral pool / total token supply).
+- Put tokens on a bonding curve so that as demand increases and people buy (thus increasing supply) the price moves upward (and not down) because you're expanding the pie (collateral pool) and not diluting current holders (as would happen if you minted Grain against a fixed pool of funds).
+
+If you just use ETH to boost, then you need a mechanism to redeem ETH. ETH would be locked in a contract on-chain, and as people play the game off-chain they would earn rights to unlock the ETH on-chain. What is the price/value of the off-chain points/rights? How much boosting do you get per ETH? How do you actually grant someone the ability to unlock ETH out of the staking/boosting pool on-chain? This requires a token with price discovery.
+
+## Random Stuff
+
+Financial rewards affect decision making, but ultimately money is a constraint on your ability to do things; you use it as a sort of action potential (power), but its not intrinsically valuable (other than as a means towards other ends). In practice DAOs open pathways to achieve ends (to self actualize individually and as groups) without necessitate money as an intermediary. Money/tokens is just a tool to transfer value between systems.
+
+> The internet of value is data and design patterns.
