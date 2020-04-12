@@ -6,6 +6,7 @@ module.exports = {
   favicon: 'img/favicon.ico',
   organizationName: 'aracred', // Usually your GitHub org/user name.
   projectName: 'website', // Usually your repo name.
+  themes: ['@docusaurus/theme-live-codeblock'],
   themeConfig: {
     navbar: {
       title: 'AraCred',
