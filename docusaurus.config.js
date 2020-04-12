@@ -45,7 +45,7 @@ module.exports = {
             },
             {
               label: '🚀 Deployment',
-              to: 'docs/deployment-overview',
+              to: 'docs/deploymentOverview',
             },
           ],
         },

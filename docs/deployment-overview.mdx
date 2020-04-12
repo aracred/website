@@ -28,8 +28,9 @@ Testing.
   values={[
     { label: 'Fork AraCred', value: 'fork', },
     { label: 'Enable GitHub Actions', value: 'actions', },
-    { label: 'Export Private Key', value: 'pk', },
-    { label: 'Infura', value: 'infura', },
+    { label: 'Ethereum Key', value: 'pk', },
+    { label: 'Infura Key', value: 'infura', },
+    { label: 'GitHub Secrets', value: 'secrets', },
   ]
 }>
     <TabItem value="fork">
@@ -49,9 +50,15 @@ Testing.
         <img alt="Infura Setup" src={useBaseUrl('img/infura.png')} />
         <p>Learn how to get started with Infura <a href="https://blog.infura.io/getting-started-with-infura-28e41844cc89/">here.</a></p>
     </TabItem>
+    <TabItem value="secrets">
+        <img alt="GitHub Secrets" src={useBaseUrl('img/eth-infura-secrets.png')} />
+        <p>The secrets must be titled PRIVATE_KEY and INFURA_KEY.</p>
+    </TabItem>
 </Tabs>
 
 # Step 1: Connect Your DAO to AraCred (Required)
+
+> The DAO we used for this walkthrough is https://mainnet.aragon.org/#/aracreddeploymenttesting/
 
 ## Create A DAO
 
