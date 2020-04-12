@@ -40,7 +40,7 @@ module.exports = {
             },
             {
               label: '💸 Tokeneconomics',
-              to: 'docs/tokeneconomics-overview',
+              to: 'docs/design-goals',
             },
             {
               label: '🚀 Deployment',
