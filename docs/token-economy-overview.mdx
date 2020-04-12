@@ -6,13 +6,25 @@ sidebar_label: Token Economy Overview
 
 import useBaseUrl from '@docusaurus/useBaseUrl'; // Add to the top of the file below the front matter.
 
-<img alt="Token Economy Whiteboard" src={useBaseUrl('img/token-economy-whiteboard.png')} />
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-> Initial whiteboard sketch
+<Tabs
+  defaultValue="whiteboard"
+  values={[
+    { label: 'Whiteboard', value: 'whiteboard', },
+    { label: 'Diagram', value: 'diagram', },
+  ]
+}>
+    <TabItem value="whiteboard">
+        <img alt="Token Economy Whiteboard" src={useBaseUrl('img/token-economy-whiteboard.png')} />
+    </TabItem>
+    <TabItem value="diagram">
+        <img alt="Grain Dynamics" src={useBaseUrl('img/grain-dynamics.png')} />
+        <a href="https://www.lucidchart.com/invitations/accept/53bb9538-8ec1-472a-a955-8ff0b09b06b6">Click here to explore and/or fork the diagram</a>
+    </TabItem>
+</Tabs>
 
-<img alt="Grain Dynamics" src={useBaseUrl('img/grain-dynamics.png')} />
-
-> [Click here to explore and/or fork the diagram](https://www.lucidchart.com/invitations/accept/53bb9538-8ec1-472a-a955-8ff0b09b06b6)
 
 export const Highlight = ({children, color}) => (
   <h2>
