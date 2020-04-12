@@ -20,9 +20,8 @@ Talk about how the supply schedule is super important as well as various governa
     { label: 'Overview', value: 'overview', },
     { label: 'Minting/Burning', value: 'minting-burning', },
     { label: 'Game/Community Productivity', value: 'productivity', },
-    { label: 'Token Pricing', value: 'pricing', },
     { label: 'Token Ledger', value: 'token-ledger', },
-    { label: 'Diagram', value: 'diagram', },
+    { label: 'Token Pricing', value: 'pricing', },
   ]
 }>
     <TabItem value="overview">
@@ -34,12 +33,20 @@ Talk about how the supply schedule is super important as well as various governa
     <TabItem value="productivity">
         <img alt="AraCred Game Productivity" src={useBaseUrl('img/productivity.jpg')} />
     </TabItem>
-    <TabItem value="pricing">
-        <img alt="AraCred Token Pricing" src={useBaseUrl('img/pricing.jpg')} />
-    </TabItem>
     <TabItem value="token-ledger">
         <img alt="AraCred Token Ledger" src={useBaseUrl('img/token-ledger.jpg')} />
     </TabItem>
+    <TabItem value="pricing">
+        <img alt="AraCred Token Pricing" src={useBaseUrl('img/pricing.jpg')} />
+    </TabItem>
+</Tabs>
+
+<Tabs
+  defaultValue="diagram"
+  values={[
+    { label: 'Diagram', value: 'diagram', },
+  ]
+}>
     <TabItem value="diagram">
         <img alt="AraCred Token Market" src={useBaseUrl('img/aracred-token-market.svg')} />
         <a href="https://www.lucidchart.com/invitations/accept/53bb9538-8ec1-472a-a955-8ff0b09b06b6">Click here to explore and/or fork the diagram</a>
