@@ -9,14 +9,22 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 <Tabs
-  defaultValue="whiteboard"
+  defaultValue="overview"
   values={[
-    { label: 'Whiteboard', value: 'whiteboard', },
+    { label: 'Overview', value: 'overview', },
+    { label: 'Governance', value: 'governance', },
+    { label: 'Automated Market Maker', value: 'amm', },
     { label: 'Diagram', value: 'diagram', },
   ]
 }>
-    <TabItem value="whiteboard">
-        <img alt="Token Economy Whiteboard" src={useBaseUrl('img/token-economy-whiteboard.png')} />
+    <TabItem value="overview">
+        <img alt="Token Economy Overview" src={useBaseUrl('img/token-economy-whiteboard.png')} />
+    </TabItem>
+    <TabItem value="governance">
+        <img alt="Token Minting Governance" src={useBaseUrl('img/governance.jpg')} />
+    </TabItem>
+    <TabItem value="amm">
+        <img alt="Automated Market Maker" src={useBaseUrl('img/uniswap.jpg')} />
     </TabItem>
     <TabItem value="diagram">
         <img alt="Grain Dynamics" src={useBaseUrl('img/aracred-token-market-overview.svg')} />

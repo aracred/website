@@ -53,12 +53,16 @@ module.exports = {
           title: 'Contribute',
           items: [
             {
-              label: '💡 Share ideas',
+              label: '💡 Share Ideas',
               href: 'https://discord.gg/nG4Ew2Y',
             },
             {
-              label: '💻 Lay down code',
+              label: '💻 Lay Down Code',
               href: 'https://github.com/aracred',
+            },
+            {
+              label: '🦅 Engage in Governance',
+              href: 'https://mainnet.aragon.org/#/aracredmvp/',
             },
           ],
         },
