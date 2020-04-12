@@ -8,6 +8,38 @@ import useBaseUrl from '@docusaurus/useBaseUrl'; // Add to the top of the file b
 
 Talk about how the supply schedule is super important as well as various governance mechansims (voting, court, validators) that can ensure that minting is done in a fair and reasonable way.
 
+## Notes
+
+The mechanism that determines payouts (slow/fast) is actually a completely different mechanism from the one that runs the modified page rank algorithm. You could run a simple nomination mechanism instead of SourceCred and then calculate scores according to the slow/fast payout system. You could also run SourceCred and then run that through an additional filter that generates token scores based on percentages, absolute values, or whatever else.
+
+Also, the governance mechanism that approves the minting of tokens could be completely automated, trust but verify (via a vote, council, or court), or require explicity approval from token holders.
+
+For the market, however, what really matters is the supply of tokens going into and out of the market. To simplify things we can say that:
+- Tokens are _only_ minted from off-chain activity.
+- Once toknes are minted there is some demand to use them in the World of Ethereum (WoE).
+- When tokens are burned users either get cash out of the curve or in-game features/points.
+- In-game points can only be used in-game and cannot be redeemed directly for on-chain tokens.
+- When in-game points are used to unlock features, boost, or whatever else there is a delay between that conversion event and Cred being realized.
+- There is a delay between Cred being realized and on-chain tokens being awarded for a player's Cred.
+- The mechanism that calculates token scores based on contributions does not know about or take into account in-game points from token burning.
+
+#### Subjective vs Objective
+
+The world of on-chain activity is verifiable and concrete. The world of off-chain gameplay is subjective and somewhat opaque. Having transparency into the off-chain game is going to be essential for on-chain token holders to appropriately defend themselves against market collapse. This is especially important if secondary on-chain activity drives demand for tokens outside of the burn/redeem model. These token holders/users will expect their tokens to retain value/utility outside of the dynamics of the off-chain in-game economy. 
+
+World of Ethereum
+- hard rules and data (non-discretionary)
+
+In-game World (in this example: SourceCred)
+- subjective oracle to Ethereum contracts (discretionary)
+
+#### Primary vs Secondary Accounting
+
+Does the off-chain world of the game view itself as the primary game with the on-chain market merely as a gateway to the game, or is the on-chain token ledger the main source of truth and is the off-chain world a temporary subjective game that expresses a perspective on value before being realized on-chain via a tangible asset?
+- Token market as a gateway to the game.
+- Game as a subjective oracle to provide information to the token market.
+- Token market as a subjective expression of the world's opion on the value of the game.
+
 ## Ideas 
 
 > What follows are rough ideas, not final docs. They have to go somewhere, however, so here we go!
