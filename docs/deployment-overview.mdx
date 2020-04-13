@@ -45,13 +45,18 @@ Testing.
     <TabItem value="pk">
         <img alt="Export Private Key" src={useBaseUrl('img/metamask.png')} />
         <p>Learn how to export your Metamask private key <a href="https://metamask.zendesk.com/hc/en-us/articles/360015289632-How-to-Export-an-Account-Private-Key">here.</a></p>
+        <p>Metamask allows you to create lots of accounts very cheaply, so the account who's private key you export should only be used for AraCred. In addition, the account should not be the account that created the DAO and it should not hold any of the DAO's tokens. It should only hold a very small amount of ETH to facilitate sending transactions.</p>
+        <h3>Do not use your regular account for this!</h3>
     </TabItem>
     <TabItem value="infura">
         <img alt="Infura Setup" src={useBaseUrl('img/infura.png')} />
         <p>Learn how to get started with Infura <a href="https://blog.infura.io/getting-started-with-infura-28e41844cc89/">here.</a></p>
+        <p>You will need to create a project and then copy the Project ID.</p>
+        <p>This can also be found on the Endpoints probided: wss://mainnet.infura.io/v3/INFURA_KEY</p>
     </TabItem>
     <TabItem value="secrets">
         <img alt="GitHub Secrets" src={useBaseUrl('img/eth-infura-secrets.png')} />
+        <p>You will then need to add both the Ethereum private key and Infura ProjectID to GitHub Secrets.</p>
         <p>The secrets must be titled PRIVATE_KEY and INFURA_KEY.</p>
     </TabItem>
 </Tabs>
@@ -209,3 +214,41 @@ Testing.
 # Step 5: Visualize Your Cred Graph (Recommended)
 
 > Talk about setting up GitHub Pages on the docs folder, then explain a bit about how to read the graph. 
+
+<Tabs
+  defaultValue="enable-gh-pages"
+  values={[
+    { label: 'Enable GitHub Pages', value: 'enable-gh-pages', },
+    { label: 'SourceCred Docs Mainpage', value: 'sc-docs-main', },
+    { label: 'View Cred Graph', value: 'view-cred-graph', },
+    { label: 'Post Cred Graph Link', value: 'post-to-gh-repo', },
+  ]
+}>
+    <TabItem value="open-settings">
+    </TabItem>
+    <TabItem value="enable-gh-pages">
+        <img alt="Open Settings" src={useBaseUrl('img/open-settings.png')} />
+        <p>Open Settings.</p>
+        <img alt="Enable GitHub Pages" src={useBaseUrl('img/enable-gh-pages.png')} />
+        <p>You'll need to enable GitHub pages to run on the docs folder.</p>
+        <img alt="Successful GH-Pages Deployment" src={useBaseUrl('img/successful-gh-pages.png')} />
+        <p>GitHub will provide you with a link once the docs folder is successfully deployed.</p>
+    </TabItem>
+    <TabItem value="sc-docs-main">
+        <img alt="SouceCred Docs Mainpage" src={useBaseUrl('img/sc-docs-main.png')} />
+        <p>You'll want to click on "Prototype" in the top right to get to the Cred graph visualizations.</p>
+        <img alt="SourceCred Prototype Page" src={useBaseUrl('img/sc-prototype-aracred.png')} />
+        <p>You'll then want to click on @AraCred to see the AraCred graph for your project.</p>
+    </TabItem>
+    <TabItem value="view-cred-graph">
+        <img alt="View Vred Graph" src={useBaseUrl('img/view-cred-graph.png')} />
+    </TabItem>
+    <TabItem value="post-to-gh-repo">
+        <img alt="Copy Cred Graph Link" src={useBaseUrl('img/copy-cred-graph-link.png')} />
+        <img alt="Post Cred Graph Link to GitHub Repo" src={useBaseUrl('img/post-cred-graph-link-to-gh.png')} />
+    </TabItem>
+</Tabs>
+
+# Step 6: See your tokens being minted
+
+> Show how votes are created to mint tokens, and how if you set the threshold to 0 as long as no one objects they go right through. 
