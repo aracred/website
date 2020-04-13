@@ -8,9 +8,6 @@ import useBaseUrl from '@docusaurus/useBaseUrl'; // Add to the top of the file b
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Testing.
-
-
 > This is how to deploy your own AraCred instance on manual mode. 
 
 # Prerequisites
@@ -224,8 +221,6 @@ Testing.
     { label: 'Post Cred Graph Link', value: 'post-to-gh-repo', },
   ]
 }>
-    <TabItem value="open-settings">
-    </TabItem>
     <TabItem value="enable-gh-pages">
         <img alt="Open Settings" src={useBaseUrl('img/open-settings.png')} />
         <p>Open Settings.</p>
@@ -252,3 +247,31 @@ Testing.
 # Step 6: See your tokens being minted
 
 > Show how votes are created to mint tokens, and how if you set the threshold to 0 as long as no one objects they go right through. 
+
+<Tabs
+  defaultValue="check-votes"
+  values={[
+    { label: 'Check Open Votes', value: 'check-votes', },
+    { label: 'Vote', value: 'vote', },
+    { label: 'Check Open Votes Again', value: 'check-votes-again', },
+  ]
+}>
+    <TabItem value="check-votes">
+        <img alt="Check Open Votes" src={useBaseUrl('img/check-votes.png')} />
+        <p>Open the DAO and open the Voting app.</p>
+    </TabItem>
+    <TabItem value="vote">
+        <img alt="Click on the vote" src={useBaseUrl('img/click-on-the-vote.png')} />
+        <p>Click on the vote to see more information and vote.</p>
+        <img alt="Vote Detail View" src={useBaseUrl('img/vote-detail-view.png')} />
+        <p>Then vote yay or nay.</p>
+        <img alt="Sign Vote" src={useBaseUrl('img/sign-vote.png')} />
+        <p>Sign the vote and pay a gas fee.</p>
+        <img alt="Vote Success" src={useBaseUrl('img/vote-success.png')} />
+        <p>When your vote is successfully processed the UI will reflect that. This might take a few minutes depending on the speed of the Ethereum network.</p>
+    </TabItem>
+    <TabItem value="check-votes-again">
+        <img alt="Check Votes Again" src={useBaseUrl('img/check-votes-again.png')} />
+        <p>Depending on your voting power the vote may or may not be processed right away.</p>
+    </TabItem>
+</Tabs>
