@@ -10,19 +10,19 @@ import styles from './styles.module.css';
 const features = [
   {
     title: <>Better For Everyone</>,
-    imageUrl: 'img/sc-logo-new.png',
+    imageUrl: 'img/undraw_smiley.svg',
     description: (
       <>
-        AraCred lets you provide top-down support to your commuinty while disbursing tokens in a bottom-up manner based on contributions and engagement.    
+        AraCred lets you provide top-down support to your commuinty while <b>disbursing tokens</b> in a bottom-up manner based on <b>contributions</b> and <b>engagement</b>.    
       </>
     ),
   },
   {
     title: <>Focus on What Matters</>,
-    imageUrl: 'img/ethereum.png',
+    imageUrl: 'img/undraw_coding.svg',
     description: (
       <>
-        By automatically recognizing and rewarding contributions, you can focus on doing awesome stuff vs claiming credit for awesome stuff.  
+        By automatically <b>recognizing and rewarding contributions</b>, you can focus on doing awesome stuff vs claiming credit for awesome stuff.  
       </>
     ),
   },
@@ -31,7 +31,7 @@ const features = [
     imageUrl: 'img/logo.png',
     description: (
       <>
-        AraCred runs SourceCred on all the things, then mints tokens for contributors in an Aragon DAO. This way your community is recognized, rewarded, and empowered based on their contributions. 
+        AraCred runs <a href="https://sourcecred.io/">SourceCred</a> on all the things, then mints tokens for contributors in an <a href="https://aragon.org">Aragon</a> DAO. This way your community is recognized, rewarded, and empowered based on their contributions. 
       </>
     ),
   },
