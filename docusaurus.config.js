@@ -6,6 +6,10 @@ module.exports = {
   favicon: 'img/favicon.ico',
   organizationName: 'aracred', // Usually your GitHub org/user name.
   projectName: 'website', // Usually your repo name.
+  stylesheets: [
+    "https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;600&display=swap",
+    "/css/code-block-buttons.css"
+  ],
   themes: ['@docusaurus/theme-live-codeblock'],
   themeConfig: {
     navbar: {
