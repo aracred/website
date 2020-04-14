@@ -61,3 +61,12 @@ h1, h2, h3, h4, .navbar a, .footer a {
 .hero .button:hover {
   background: #ebedf0;
 }
+
+html[data-theme="dark"] .hero .button {
+  background: #000;
+}
+
+html[data-theme="dark"] .hero .button:hover {
+  color: #fff;
+  opacity: 0.9;
+}
