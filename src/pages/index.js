@@ -13,7 +13,7 @@ const features = [
     imageUrl: 'img/undraw_smiley.svg',
     description: (
       <>
-        AraCred lets you provide top-down support to your commuinty while <b>disbursing tokens</b> in a bottom-up manner based on <b>contributions</b> and <b>engagement</b>.    
+        AraCred lets you provide top-down support to your community while <b>disbursing tokens</b> in a bottom-up manner based on <b>contributions</b> and <b>engagement</b>.    
       </>
     ),
   },
