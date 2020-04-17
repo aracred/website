@@ -10,7 +10,7 @@ import styles from './styles.module.css';
 const features = [
   {
     title: <>Better For Everyone</>,
-    imageUrl: 'img/undraw_smiley.svg',
+    imageUrl: 'img/new-aragon-logo.png',
     description: (
       <>
         AraCred lets you provide top-down support to your commuinty while <b>disbursing tokens</b> in a bottom-up manner based on <b>contributions</b> and <b>engagement</b>.    
@@ -19,7 +19,7 @@ const features = [
   },
   {
     title: <>Focus on What Matters</>,
-    imageUrl: 'img/undraw_coding.svg',
+    imageUrl: 'img/sc-logo-new.png',
     description: (
       <>
         By automatically <b>recognizing and rewarding contributions</b>, you can focus on doing awesome stuff vs claiming credit for awesome stuff.  
