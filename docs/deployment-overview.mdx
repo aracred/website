@@ -250,6 +250,9 @@ import TabItem from '@theme/TabItem';
 }>
     <TabItem value="add-discourse">
         <img alt="Add Discourse Forum" src={useBaseUrl('img/add-discourse.png')} />
+        <p>Note! You cannot have a trailing backslash in the Discourse forum URL.</p>
+        <p>This is good:  "serverUrl": "https://community.your-community.org"</p>
+        <p>This will not work: "serverUrl": "https://community.your-community.org/"</p>
     </TabItem>
     <TabItem value="add-discourse-usernames">
         <img alt="Add Discourse Usernames" src={useBaseUrl('img/add-discourse-usernames.png')} />
