@@ -66,7 +66,7 @@ module.exports = {
             },
             {
               label: '🦅 Engage in Governance',
-              href: 'https://mainnet.aragon.org/#/aracredmvp/',
+              href: 'https://mainnet.aragon.org/#/aracredcore/',
             },
           ],
         },
