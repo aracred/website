@@ -1,0 +1,258 @@
+---
+id: automatedDeploymentOverview
+title: AraCred Automated Deployment (beta)
+sidebar_label: AraCred Automated Deployment
+---
+
+import useBaseUrl from '@docusaurus/useBaseUrl'; // Add to the top of the file below the front matter.
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+> This is how to deploy your own AraCred instance, the easy way. 
+
+# Prerequisites
+
+- A [computer](https://en.wikipedia.org/wiki/Computer) connected to the [internet](https://en.wikipedia.org/wiki/Internet).
+- An [Ethereum address](https://metamask.io/) with some [ETH](https://www.sendwyre.com/).
+- An [Aragon DAO](https://mainnet.aragon.org/#/create). (You'll need at least 0.1 ETH to deploy your own DAO)
+- A [GitHub](https://github.com/) account.
+- An [Infura](https://infura.io/) account.
+- A [Heroku](http://heroku.com/) account.
+
+# Step 0: Create a DAO
+
+<Tabs
+  defaultValue="step0"
+  values={[
+    { label: 'Start Here', value: 'step0', },
+    { label: 'Step 1', value: 'step1', },
+    { label: 'Step 2', value: 'step2', },
+    { label: 'Step 3', value: 'step3', },
+    { label: 'Step 4', value: 'step4', },
+    { label: 'Step 5', value: 'step5', },
+    { label: 'Step 6', value: 'step6', },
+    { label: 'Step 7', value: 'step7', },
+    { label: 'Step 8', value: 'step8', },
+  ]
+}>
+    <TabItem value="step0">
+        <img alt="Step 0" src={useBaseUrl('img/deploy-dao-0.png')} />
+    </TabItem>
+    <TabItem value="step1">
+        <img alt="Step 1" src={useBaseUrl('img/deploy-dao-1.png')} />
+    </TabItem>
+    <TabItem value="step2">
+        <img alt="Step 2" src={useBaseUrl('img/deploy-dao-2.png')} />
+    </TabItem>
+    <TabItem value="step3">
+        <img alt="Step 3" src={useBaseUrl('img/deploy-dao-3.png')} />
+    </TabItem>
+    <TabItem value="step4">
+        <img alt="Step 4" src={useBaseUrl('img/deploy-dao-4.png')} />
+    </TabItem>
+    <TabItem value="step5">
+        <img alt="Step 5" src={useBaseUrl('img/deploy-dao-5.png')} />
+    </TabItem>
+    <TabItem value="step6">
+        <img alt="Step 6" src={useBaseUrl('img/deploy-dao-6.png')} />
+    </TabItem>
+    <TabItem value="step7">
+        <img alt="Step 7" src={useBaseUrl('img/deploy-dao-7.png')} />
+    </TabItem>
+    <TabItem value="step8">
+        <img alt="Step 8" src={useBaseUrl('img/deploy-dao-8.png')} />
+    </TabItem>
+</Tabs>
+
+# Step 1: Creating your AraCred instance
+
+<Tabs
+  defaultValue="setup"
+  values={[
+    { label: 'Setup your own AraCred', value: 'setup', },
+    { label: 'Enable GitHub Actions', value: 'actions', },
+    { label: 'Ethereum Key', value: 'pk', },
+    { label: 'Infura Key', value: 'infura', },
+    { label: 'GitHub Secrets', value: 'secrets', },
+  ]
+}>
+    <TabItem value="setup">
+        <p>Open a terminal and execute <code>npx aracred-init</code></p>
+        <p>You will be asked for the following parameters:</p>
+        <ul>
+            <li>Address of the DAO to be used</li>
+            <li>Address of the Token Manager app instance</li>
+            <li>Address of the Voting app instance</li>
+            <li>Discord Server name</li>
+            <li>Discord Server ID</li>
+            <li>GitHub access token</li>
+        </ul>
+        <p>This will generate a new Git repo. You can create a new repo on GitHub, and then push to it by executing:</p>
+        <code>git remote add origin git@github.com:User/UserRepo</code>
+        <code>git push -u origin master</code>
+    </TabItem>
+    <TabItem value="actions">
+        <img alt="Enable GitHub Actions" src={useBaseUrl('img/actions.png')} />
+        <p>You'll need to go into the "Settings" section of the forked AraCred repo, then click on "Actions".</p>
+        <p>More info on GitHub Actions can be found <a href="https://help.github.com/en/actions/getting-started-with-github-actions/about-github-actions">here.</a></p>
+    </TabItem>
+    <TabItem value="pk">
+        <img alt="Export Private Key" src={useBaseUrl('img/metamask.png')} />
+        <p>Learn how to export your Metamask private key <a href="https://metamask.zendesk.com/hc/en-us/articles/360015289632-How-to-Export-an-Account-Private-Key">here.</a></p>
+        <p>Metamask allows you to create lots of accounts very cheaply, so the account who's private key you export should only be used for AraCred. In addition, the account should not be the account that created the DAO and it should not hold any of the DAO's tokens. It should only hold a very small amount of ETH to facilitate sending transactions.</p>
+        <h3>Do not use your regular account for this!</h3>
+    </TabItem>
+    <TabItem value="infura">
+        <img alt="Infura Setup" src={useBaseUrl('img/infura.png')} />
+        <p>Learn how to get started with Infura <a href="https://blog.infura.io/getting-started-with-infura-28e41844cc89/">here.</a></p>
+        <p>You will need to create a project and then copy the Project ID.</p>
+        <p>This can also be found on the Endpoints probided: wss://mainnet.infura.io/v3/INFURA_KEY</p>
+    </TabItem>
+    <TabItem value="secrets">
+        <img alt="GitHub Secrets" src={useBaseUrl('img/eth-infura-secrets.png')} />
+        <p>You will then need to add both the Ethereum private key and Infura ProjectID to GitHub Secrets.</p>
+        <p>The secrets must be titled PRIVATE_KEY and INFURA_KEY.</p>
+    </TabItem>
+</Tabs>
+
+# Step 2: Connect GitHub (Optional)
+
+> If you don't want to connect AraCred to GitHub you'll have to remove all GitHub related info from `project.json`.
+
+<Tabs
+  defaultValue="open"
+  values={[
+    { label: 'Open project.json', value: 'open', },
+    { label: 'Add GitHub Repos', value: 'add-github-repos', },
+  ]
+}>
+    <TabItem value="open">
+        <img alt="Open `project.json`" src={useBaseUrl('img/open-project-json.png')} />
+    </TabItem>
+    <TabItem value="add-github-repos">
+        <img alt="Add GitHub Repos" src={useBaseUrl('img/add-github-repos.png')} />
+    </TabItem>
+</Tabs>
+
+# Step 3: Connect Discord (Optional)
+
+> If you don't want to connect AraCred to Discord you'll have to remove all GitHub related info from `project.json`.
+
+<Tabs
+  defaultValue="enable-dev-mode"
+  values={[
+    { label: 'Enable Developer Mode', value: 'enable-dev-mode', },
+    { label: 'Build A Bot', value: 'build-a-bot', },
+    { label: 'Connect Bot to GitHub', value: 'connect-bot-github', },
+    { label: 'Connect Discord to AraCred', value: 'connect-discord-aracred', },
+    { label: 'Add Discord UserIDs to AraCred', value: 'add-discord-ids', },
+  ]
+}>
+    <TabItem value="enable-dev-mode">
+        <img alt="Enable Developer Mode" src={useBaseUrl('img/discord-dev-mode.png')} />
+        <h3><a href="https://support.discordapp.com/hc/en-us/articles/206346498-Where-can-I-find-my-User-Server-Message-ID-">Enable Discord Developer Mode</a></h3>
+    </TabItem>
+    <TabItem value="build-a-bot">
+        <img alt="Build A Bot" src={useBaseUrl('img/build-a-bot.png')} />
+        <h3><a href="https://github.com/reactiflux/discord-irc/wiki/Creating-a-discord-bot-&-getting-a-token">Create a Discord bot</a> and give it the permission to read messages.</h3>
+    </TabItem>
+    <TabItem value="connect-bot-github">
+        <img alt="Connect Bot to GitHub" src={useBaseUrl('img/secrets.png')} />
+        <h3>Add the bot's token to the GitHub secrets for your forked TheSource repo. The token must be called: SOURCECRED_DISCORD_TOKEN.</h3>
+    </TabItem>
+    <TabItem value="connect-discord-aracred">
+        <img alt="Connect Discord to AraCred" src={useBaseUrl('img/connect-discord-aracred.png')} />
+        <h3>The guildID is the Discord server ID. If you have developer mode enabled you can right click to copypasta this parameter.</h3>
+    </TabItem>
+    <TabItem value="add-discord-ids">
+        <img alt="Add Discord UserIDs to AraCred" src={useBaseUrl('img/add-discord-ids.png')} />
+        <h3>If you have developer mode enabled you can right click on any Discord users to copypasta this parameter.</h3>
+    </TabItem>
+</Tabs>
+
+# Step 4: Connect Discourse (Optional)
+
+> If you don't want to connect AraCred to Discourse you'll have to remove all GitHub related info from `project.json`.
+
+<Tabs
+  defaultValue="add-discourse"
+  values={[
+    { label: 'Add Discourse Forum', value: 'add-discourse', },
+    { label: 'Add Discourse Usernames', value: 'add-discourse-usernames', },
+  ]
+}>
+    <TabItem value="add-discourse">
+        <img alt="Add Discourse Forum" src={useBaseUrl('img/add-discourse.png')} />
+    </TabItem>
+    <TabItem value="add-discourse-usernames">
+        <img alt="Add Discourse Usernames" src={useBaseUrl('img/add-discourse-usernames.png')} />
+    </TabItem>
+</Tabs>
+
+# Step 5: Visualize Your Cred Graph (Recommended)
+
+> Talk about setting up GitHub Pages on the docs folder, then explain a bit about how to read the graph. 
+
+<Tabs
+  defaultValue="enable-gh-pages"
+  values={[
+    { label: 'Enable GitHub Pages', value: 'enable-gh-pages', },
+    { label: 'SourceCred Docs Mainpage', value: 'sc-docs-main', },
+    { label: 'View Cred Graph', value: 'view-cred-graph', },
+    { label: 'Post Cred Graph Link', value: 'post-to-gh-repo', },
+  ]
+}>
+    <TabItem value="enable-gh-pages">
+        <img alt="Open Settings" src={useBaseUrl('img/open-settings.png')} />
+        <p>Open Settings.</p>
+        <img alt="Enable GitHub Pages" src={useBaseUrl('img/enable-gh-pages.png')} />
+        <p>You'll need to enable GitHub pages to run on the docs folder.</p>
+        <img alt="Successful GH-Pages Deployment" src={useBaseUrl('img/successful-gh-pages.png')} />
+        <p>GitHub will provide you with a link once the docs folder is successfully deployed.</p>
+    </TabItem>
+    <TabItem value="sc-docs-main">
+        <img alt="SouceCred Docs Mainpage" src={useBaseUrl('img/sc-docs-main.png')} />
+        <p>You'll want to click on "Prototype" in the top right to get to the Cred graph visualizations.</p>
+        <img alt="SourceCred Prototype Page" src={useBaseUrl('img/sc-prototype-aracred.png')} />
+        <p>You'll then want to click on @AraCred to see the AraCred graph for your project.</p>
+    </TabItem>
+    <TabItem value="view-cred-graph">
+        <img alt="View Cred Graph" src={useBaseUrl('img/view-cred-graph.png')} />
+    </TabItem>
+    <TabItem value="post-to-gh-repo">
+        <img alt="Copy Cred Graph Link" src={useBaseUrl('img/copy-cred-graph-link.png')} />
+        <img alt="Post Cred Graph Link to GitHub Repo" src={useBaseUrl('img/post-cred-graph-link-to-gh.png')} />
+    </TabItem>
+</Tabs>
+
+# Step 6: See your tokens being minted
+
+> Show how votes are created to mint tokens, and how if you set the threshold to 0 as long as no one objects they go right through. 
+
+<Tabs
+  defaultValue="check-votes"
+  values={[
+    { label: 'Check Open Votes', value: 'check-votes', },
+    { label: 'Vote', value: 'vote', },
+    { label: 'Check Open Votes Again', value: 'check-votes-again', },
+  ]
+}>
+    <TabItem value="check-votes">
+        <img alt="Check Open Votes" src={useBaseUrl('img/check-votes.png')} />
+        <p>Open the DAO and open the Voting app.</p>
+    </TabItem>
+    <TabItem value="vote">
+        <img alt="Click on the vote" src={useBaseUrl('img/click-on-the-vote.png')} />
+        <p>Click on the vote to see more information and vote.</p>
+        <img alt="Vote Detail View" src={useBaseUrl('img/vote-detail-view.png')} />
+        <p>Then vote yay or nay.</p>
+        <img alt="Sign Vote" src={useBaseUrl('img/sign-vote.png')} />
+        <p>Sign the vote and pay a gas fee.</p>
+        <img alt="Vote Success" src={useBaseUrl('img/vote-success.png')} />
+        <p>When your vote is successfully processed the UI will reflect that. This might take a few minutes depending on the speed of the Ethereum network.</p>
+    </TabItem>
+    <TabItem value="check-votes-again">
+        <img alt="Check Votes Again" src={useBaseUrl('img/check-votes-again.png')} />
+        <p>Depending on your voting power the vote may or may not be processed right away.</p>
+    </TabItem>
+</Tabs>
