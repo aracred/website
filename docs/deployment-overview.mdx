@@ -58,7 +58,15 @@ import TabItem from '@theme/TabItem';
     </TabItem>
 </Tabs>
 
-# Step 1: Connect Your DAO to AraCred (Required)
+> We recommend creating unique accounts for your AraCred instance.
+> - A unique project email for project admin functions.
+> - A unique Infura account associated with said project email so that your API key is only used for AraCred stuff.
+> - A dedicated GitHub account tied to the project email for your GitHub API Token as well as to run GitHub actions. 
+> - A unique Ethereum key with a very low amount of ETH to pay for gas fees for AraCred. 
+> 
+> These measures separate security concerns while also decreasing the likelihood of poor performance due to rate limiting.  
+
+# Step 1: Connect your DAO to AraCred (Required)
 
 > The DAO we used for this walkthrough is https://mainnet.aragon.org/#/aracreddeploymenttesting/
 
@@ -130,7 +138,7 @@ import TabItem from '@theme/TabItem';
     </TabItem>
 </Tabs>
 
-# Step 2: Connect GitHub (Optional)
+# Step 2: Run AraCred on GitHub repos (Optional)
 
 > If you don't want to connect AraCred to GitHub you'll have to remove all GitHub related info from `project.json`.
 
@@ -153,7 +161,7 @@ import TabItem from '@theme/TabItem';
     </TabItem>
 </Tabs>
 
-# Step 3: Connect Discord (Optional)
+# Step 3: Run AraCred on a Discord server (Optional)
 
 > If you don't want to connect AraCred to Discord you'll have to remove all GitHub related info from `project.json`.
 
@@ -173,7 +181,7 @@ import TabItem from '@theme/TabItem';
     </TabItem>
     <TabItem value="build-a-bot">
         <img alt="Build A Bot" src={useBaseUrl('img/build-a-bot.png')} />
-        <h3><a href="https://github.com/reactiflux/discord-irc/wiki/Creating-a-discord-bot-&-getting-a-token">Create a Discord bot</a> and give it the permission to read messages.</h3>
+        <h3><a href="https://github.com/reactiflux/discord-irc/wiki/Creating-a-discord-bot-&-getting-a-token">Create a Discord bot</a> and give it the permission to both send and read messages.</h3>
     </TabItem>
     <TabItem value="connect-bot-github">
         <img alt="Connect Bot to GitHub" src={useBaseUrl('img/secrets.png')} />
@@ -189,7 +197,55 @@ import TabItem from '@theme/TabItem';
     </TabItem>
 </Tabs>
 
-# Step 4: Connect Discourse (Optional)
+# Step 4: Discord onboaring bot (Optional)
+
+> This is dependent on Step 3. If you don't want to use a bot to onboard or you're not using AraCred on Discord then you can just edit the `identities` section of `project.json` as described in the following sections.
+
+<Tabs
+  defaultValue="deploy-onboarding-bot"
+  values={[
+    { label: 'Deploy Onboarding Bot', value: 'deploy-onboarding-bot', },
+    { label: 'Setup Heroku', value: 'setup-heroku-bot', },
+    { label: 'Configure Dynos', value: 'configure-dynos', },
+    { label: 'Talk To Bot', value: 'talk-to-bot', },
+  ]
+}>
+    <TabItem value="deploy-onboarding-bot">
+        <img alt="Deploy Onboarding Bot" src={useBaseUrl('img/deploy-onboarding-bot.png')} />
+        <p>Go to the <a href="https://github.com/aracred/bot/">AraCred bot page</a> and click the "Deploy To Heroku" button.</p>
+    </TabItem>
+    <TabItem value="setup-heroku-bot">
+        <img alt="Setup Heroku Bot" src={useBaseUrl('img/setup-heroku-bot.png')} />
+        <p>If you don't already have a Heroku account you'll need to create one. (they're free)</p>
+        <p>App name is just a name for the Heroku instance so that you can differentiate it from other stuff. You can name yours anything.</p>
+        <p>DISCORD_API_TOKEN is the same token that you added to GitHub secrets. See <a href="https://github.com/reactiflux/discord-irc/wiki/Creating-a-discord-bot-&-getting-a-token">this guide</a> on how to find it.</p>
+        <p>GITHUB_ADDRESS_FILE_PATH is likely to be the `GitHub Organization name` as it appears in the URL of your GitHub Org page, the `repo`, leave the `contents` part, `config`, and then `addressbook.json`</p>
+        <img src={useBaseUrl('img/github-api-key-repo-permissions.png')} />
+        <p>GITHUB_API_TOKEN needs access to all of the repo permissions. Follow this guide to [create a GitHub API Token](https://github.blog/2013-05-16-personal-api-tokens/). Note: _This will tie the bot's contributions to your profile_. If you don't want a team member to get the cred for new user onboarding, create a dedicated GitHub account just for this and use that account's API key.</p>
+        <p>GITHUB_FILE_PATH is the same as GITHUB_FILE_PATH</p>
+        <p>WHITELISTED_CHANNELS is the channels where users will be able to onboard. This is only for onboarding and does not affect Step 3 to read Cred scores.</p>
+        <p>Once you have all the info filled out you can click "Deploy app" to deploy the Heroku onboarding bot.</p>
+        <p>When your bot is successfully deployed you should see "Your app was successfully deployed." Then you can click "Manage App" to go to the next step.</p>
+    </TabItem>
+    <TabItem value="configure-dynos">
+        <p>You should see a dashboard that shows "Dyno formation" with `web npm start` ON and `worker npm start` OFF. We need to swap these. To do that click "configure dynos."</p>
+        <img alt="Configure Dynos" src={useBaseUrl('img/configure-dynos-0.png')} />
+        <img alt="Configure Dynos" src={useBaseUrl('img/configure-dynos-1.png')} />
+        <img alt="Configure Dynos" src={useBaseUrl('img/configure-dynos-2.png')} />
+        <img alt="Configure Dynos" src={useBaseUrl('img/configure-dynos-3.png')} />
+        <img alt="Configure Dynos" src={useBaseUrl('img/configure-dynos-4.png')} />
+        <img alt="Configure Dynos" src={useBaseUrl('img/configure-dynos-5.png')} />
+        <img alt="Configure Dynos" src={useBaseUrl('img/configure-dynos-6.png')} />
+        <img alt="Configure Dynos" src={useBaseUrl('img/configure-dynos-7.png')} />
+        <p>Now you should `web npm start` OFF and `worker npm start` ON.</p>
+    </TabItem>
+    <TabItem value="talk-to-bot">
+        <img alt="Talk To Bot" src={useBaseUrl('img/talk-to-bot.png')} />
+        <p>You should now be able to go into the WHITELISTED_CHANNELS and type `!ac help` to start to engage with the bot.</p>
+    </TabItem>
+</Tabs>
+
+# Step 5: Run Aracred on Discourse (Optional)
 
 > If you don't want to connect AraCred to Discourse you'll have to remove all GitHub related info from `project.json`.
 
@@ -202,13 +258,16 @@ import TabItem from '@theme/TabItem';
 }>
     <TabItem value="add-discourse">
         <img alt="Add Discourse Forum" src={useBaseUrl('img/add-discourse.png')} />
+        <p>Note! You cannot have a trailing backslash in the Discourse forum URL.</p>
+        <p>This is good:  "serverUrl": "https://community.your-community.org"</p>
+        <p>This will not work: "serverUrl": "https://community.your-community.org/"</p>
     </TabItem>
     <TabItem value="add-discourse-usernames">
         <img alt="Add Discourse Usernames" src={useBaseUrl('img/add-discourse-usernames.png')} />
     </TabItem>
 </Tabs>
 
-# Step 5: Visualize Your Cred Graph (Recommended)
+# Step 6: Visualize Your Cred Graph (Recommended)
 
 > Talk about setting up GitHub Pages on the docs folder, then explain a bit about how to read the graph. 
 
@@ -244,7 +303,7 @@ import TabItem from '@theme/TabItem';
     </TabItem>
 </Tabs>
 
-# Step 6: See your tokens being minted
+# Step 7: See your tokens being minted (Required)
 
 > Show how votes are created to mint tokens, and how if you set the threshold to 0 as long as no one objects they go right through. 
 

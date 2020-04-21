@@ -1,0 +1,99 @@
+---
+id: systemOverview
+title: System Overview
+sidebar_label: System Overview
+---
+
+import useBaseUrl from '@docusaurus/useBaseUrl'; // Add to the top of the file below the front matter.
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs
+  defaultValue="overview"
+  values={[
+    { label: 'Overview', value: 'overview', },
+    { label: 'Governance', value: 'governance', },
+    { label: 'Automated Market Maker', value: 'amm', },
+    { label: 'Diagram', value: 'diagram', },
+  ]
+}>
+    <TabItem value="overview">
+        <img alt="Token Economy Overview" src={useBaseUrl('img/token-economy-whiteboard.png')} />
+    </TabItem>
+    <TabItem value="governance">
+        <img alt="Token Minting Governance" src={useBaseUrl('img/governance.jpg')} />
+    </TabItem>
+    <TabItem value="amm">
+        <img alt="Automated Market Maker" src={useBaseUrl('img/uniswap.jpg')} />
+    </TabItem>
+    <TabItem value="diagram">
+        <img alt="Grain Dynamics" src={useBaseUrl('img/aracred-token-market-overview.svg')} />
+        <a href="https://www.lucidchart.com/invitations/accept/53bb9538-8ec1-472a-a955-8ff0b09b06b6">Click here to explore and/or fork the diagram</a>
+    </TabItem>
+</Tabs>
+
+export const Highlight = ({children, color}) => (
+  <h2>
+    <span
+        style={{
+        backgroundColor: color,
+        borderRadius: '2px',
+        color: '#fff',
+        padding: '0.2rem',
+        }}>
+        {children}
+    </span>
+  </h2>
+);
+
+<Highlight color="blue">In-game Economy</Highlight>
+
+*The In-game Community Economy bubble on the top left.*
+
+For the purposes of this exercise the in-game economy is treated as a black box. We assume that an algorithm that gives players points based on rules of a game is configured to the satisfaction of players and that it produces scores that we can mint tokens from. This could be SourceCred, a simple nomination bot, or any other type of system.
+
+<Highlight color="pink">Token Governance</Highlight>
+
+*The Access Rights section in the top of the diagram.*
+
+We then have the governance mechanism that determines how tokens are minted/burned. 
+
+The mechanism itself could be:
+- a standalone token contract
+- a DAO that can mint shares
+
+The governance mechanism for minting and burning of tokens could be any of the following:
+- Admin key
+- Multi-sig
+- DAO
+
+<Highlight color="orange">On-chain Token Market</Highlight>
+
+The primary token market is assumed to be an automated market mechanism such as a [bonding curve](https://discourse.sourcecred.io/t/bonding-curve-references/271). This solves the bootstrapping problem allowing the market to exist in a permissionless way. [Uniswap](https://uniswap.exchange/) is the most readily available of these mechanisms, but this could also be an [Aragon Fundraising DAO](https://fundraising.aragon.black/) or some other type of market maker. The benefit of modeling this using Uniswap is that it is a generic mechanism that allows anyone to setup a token market regardless of the on-chain contract/system they use to mint tokens.
+
+Some notes on Uniswap V1:
+- The "fee" is just a bit of each transaction that stays in the pool. Liquidity providers are entitled to a portion of the pool relative to how much liquidity they provided. As the pool grows, the total value that a liquidity provider has claims on increases.
+- If the pool is an ETH pair it's really just 2X the amount of ETH in the pool because the ERC-20 in the pool must always equal the ETH on the other side of that market.
+- An oracle is then needed to get the price of ETH, and then you can easily calculate the "market cap" of that token based on the ETH in the pool.
+- So the value of your pool tokens = market cap of token / your percentage of the pool.
+
+<Highlight color="green">Global Markets</Highlight>
+
+The larger game nests economic systems. It's economics all the way down.
+- The in-game economy
+- The primary token market
+- The secondary token market
+- The broader Ethereum economy
+- The global fiat economy
+
+All of these markets affect the prices of each other. For example, if there is a token/ETH Uniswap pool the value of your token will fluctuate as ETH prices fluctuate. Furthermore, if your token is cheap it becomes very easy to 51% attack either the token itself of the market/liquidity-pool for the token. For this reason it is important that the tokeneconomics of the system are robust against both intentional attacks and market fluctuations. We explore these in the next section.
+
+# Nested Economic Systems
+
+Each of these local systems has contextual value, but none of them have a global sense of value:
+- Cred: a locally shared sense of value creation and evaluation.
+- Grain: a more fungible capital-like asset that represents the value of the project to the outside world.
+- ETH: a durable commodity that represents the value of Ethereum.
+- Fiat: money.
+
+This is very important as we need the right scope to asses things. Beyond just the things, however, is their relationship to each other. It's awkward to jump from cred to fiat money due to the systems that are in between them (at least currently). For value networks to evolve in a stable equilibrium they need to have a sense of place. Then as they start to grow they can interact with larger and larger systems. 
