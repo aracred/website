@@ -8,11 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl'; // Add to the top of the file b
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Talk about how the supply schedule is super important as well as various governance mechanisms (voting, court, validators) that can ensure that minting is done in a fair and reasonable way.
-
-> What follows are rough ideas, not final docs. They have to go somewhere, however, so here we go!
-
-# Whiteboard Session
+## Whiteboard Session
 
 <Tabs
   defaultValue="overview"
@@ -41,40 +37,71 @@ Talk about how the supply schedule is super important as well as various governa
     </TabItem>
 </Tabs>
 
-# Diagram
+## Diagram
 
 <Tabs
-  defaultValue="diagram-overview"
+  defaultValue="overview-diagram"
   values={[
-    { label: 'Overview', value: 'diagram-overview', },
-    { label: 'Minting/Burning', value: 'diagram-minting-burning', },
-    { label: 'Productivity', value: 'diagram-productivity', },
-    { label: 'Token Ledger', value: 'diagram-token-ledger', },
-    { label: 'Token Pricing', value: 'diagram-pricing', },
+    { label: 'Overview', value: 'overview', },
+    { label: 'Minting/Burning', value: 'minting-burning-diagram', },
+    { label: 'Productivity', value: 'productivity-diagram', },
+    { label: 'Token Ledger', value: 'token-ledger-diagram', },
+    { label: 'Token Pricing', value: 'pricing-diagram', },
   ]
 }>
-    <TabItem value="diagram-overview">
-        <img alt="AraCred Token Market" src={useBaseUrl('img/aracred-token-market.svg')} />
+    <TabItem value="overview-diagram">
+        <img alt="AraCred Market Overview" src={useBaseUrl('img/aracred-market-overview-diagram.jpg')} />
+        <p>Coming soon!</p>
+    </TabItem>
+    <TabItem value="minting-burning-diagram">
+        <img alt="AraCred Market Minting and Burning" src={useBaseUrl('img/minting-burning-diagram.jpg')} />
+        <p>Coming soon!</p>
+    </TabItem>
+    <TabItem value="productivity-diagram">
+        <img alt="AraCred Game Productivity" src={useBaseUrl('img/productivity-diagram.jpg')} />
+        <p>Coming soon!</p>
+    </TabItem>
+    <TabItem value="token-ledger-diagram">
+        <img alt="AraCred Token Ledger" src={useBaseUrl('img/token-ledger-diagram.jpg')} />
+        <p>Coming soon!</p>
+    </TabItem>
+    <TabItem value="pricing-diagram">
+        <img alt="AraCred Token Pricing" src={useBaseUrl('img/pricing-diagram.jpg')} />
+        <p>Coming soon!</p>
     </TabItem>
 </Tabs>
 
-The mechanism that determines payouts (slow/fast) is actually a completely different mechanism from the one that runs the modified page rank algorithm. You could run a simple nomination mechanism instead of SourceCred and then calculate scores according to the slow/fast payout system. You could also run SourceCred and then run that through an additional filter that generates token scores based on percentages, absolute values, or whatever else.
+## AraCred Token Overview
 
-Also, the governance mechanism that approves the minting of tokens could be completely automated, trust but verify (via a vote, council, or court), or require an explicit approval from token holders.
+What we see here is an overview of the world of the AraCred token. Tokens are derived from the productivity of the community, regulated by the governance of the AraCred DAO, and priced by on-chain markets. The separation of labor, goverance, and pricing is very important. In this way each mechanism can be optimized for it's own purpose. Of course all of these mechanisms are related and interdependent, but from a mechanism design perspective separating them out and composing them is what allows us to design, build, and model the system. 
 
-For the market, however, what really matters is the supply of tokens going into and out of the market. To simplify things we can say that:
-- Tokens are _only_ minted from off-chain activity.
-- Once tokens are minted there is some demand to use them in the World of Ethereum (WoE).
-- When tokens are burned users either get cash out of the curve or in-game features/points.
-- In-game points can only be used in-game and cannot be redeemed directly for on-chain tokens.
-- When in-game points are used to unlock features, boost, or whatever else there is a delay between that conversion event and Cred being realized.
-- In-game points should not initially be used for anything outside of the game as that could potentially introduce recursive feedback loops. For example: if the in-game points can be minted via multiple mechanisms that would add complexity. Furthermore, if Cred is used to mint multiple on-chain tokens via multiple mechanisms/systems, the composition of these mechanisms as a whole is likely to produce unintended side effects.
-- There is a delay between Cred being realized and on-chain tokens being awarded for a player's Cred.
-- The mechanism that calculates token scores based on contributions does not know about or take into account in-game points from token burning.
+By separating these mechanisms you can use any type of tool/process to measure the value creation (productivity) of the community, any tool/process to govern the minting of tokens based on that value creation, and any tool/process to then allocate tokens to the community. From there, token holders can freely trade and use their tokens however they want in the World of Ethreum. The market will then price those tokens based on it's subjective view of the value creation of the community (as well as the token's representation of that value). 
+
+The job of AraCred is to create a token that accurately recognizes and represents value creation in a community. If this happens, then when market prices the token it will be expressing it's opinion of that community's value creation. The market price then acts as a subjective oracle to the larger world as to the value of the value being created by the community. If the community's opinion of what is valuable is in line with what the market thinks is valuable, and the commmunity is actually producing that value, the price of the token should go up. Value go up; price go up: that's the goal. 
+
+### TL;DR:
+- The metrics used to measure the community's productivity expresses what the community views to be valuable.
+  - From the perspective of the token minting process these metrics are a subjective oracle into the calculation of supply.
+- The token minting mechanism uses token supply to express an opinion of how much value is being created.
+  - From the perspective of the market token minting acts as a subjective oracle into the calculation of price.
+- The token market uses price to express it's opinion on the value of the value being created by the community.
+  - From the perspective of the community price acts as a subjective oracle into the calculation of what is valuable.
+
+This all assumes that: 
+- The community has a clear opinion on what is valuable.
+- Tools exist to measure that value in a concrete way.
+- The community is producing work that creates value. 
+- The minting mechanism mints tokens in proportion to value creation.
+- The market agrees that both the measurement of value and the coorelation between value and tokens is correct.
+- The market is effecient and liquid enough to clearly express it's view on all of the above things.  
+
+# The Community Economy
 
 If in-game points and/or Cred can be used to directly realize value outside of the system that awards tokens for contributions (Cred) then the entire system breaks. In governance systems this would be called bribery as it's introducing incentives outside of the rules of the game. In the context of AraCred this could be considered "innovation," however it is discouraged as it is likely to introduce recursive feedback loops and/or misaligned incentives among players. 
 
-The market price is an expression of the community's productivity. The market prices the Grain for the internal community. The productivity of the community (and/or in-game features and/or FOMO) is the valuable thing people want to pay for. If the community is producing value, people can participate through the market. If it's easier to participate through mechanisms outside of the market, however, then people will just do that instead and the market will lose it's value as a pricing mechanism. When this happens, things get weird... 
+# The Minting Process
+
+The governance mechanism that approves the minting of tokens could be completely automated, trust but verify (via a vote, council, or court), or require an explicit approval from token holders.
 
 The model is more the issuance policy of the community:
 - Token minting governance/security
@@ -88,24 +115,21 @@ There's kind of a natural interplay between the governance/management of the off
 - If the off-chain game makes a request for too many tokens and/or changes the issuance policy to something unreasonable on-chain token holders can vote against the minting.
 - If the on-chain token holders become too much of a bother the off-chain system can change the supply algorithm and/or fork the on-chain token supply to cut-out obnoxious token holders.
 
-### Subjective vs Objective
+# The Ethereum Market
 
-The world of on-chain activity is verifiable and concrete. The world of off-chain gameplay is subjective and somewhat opaque. Having transparency into the off-chain game is going to be essential for on-chain token holders to appropriately defend themselves against market collapse. This is especially important if secondary on-chain activity drives demand for tokens outside of the burn/redeem model. These token holders/users will expect their tokens to retain value/utility outside of the dynamics of the off-chain in-game economy. 
+For the market, what really matters is the supply of tokens going into and out of the market. To simplify things we can say that:
+- Tokens are _only_ minted from off-chain activity.
+- Once tokens are minted there is some demand to use them in the World of Ethereum (WoE).
+- When tokens are burned users either get cash out of the curve or in-game features/points.
+- In-game points can only be used in-game and cannot be redeemed directly for on-chain tokens.
+- When in-game points are used to unlock features, boost, or whatever else there is a delay between that conversion event and Cred being realized.
+- In-game points should not initially be used for anything outside of the game as that could potentially introduce recursive feedback loops. For example: if the in-game points can be minted via multiple mechanisms that would add complexity. Furthermore, if Cred is used to mint multiple on-chain tokens via multiple mechanisms/systems, the composition of these mechanisms as a whole is likely to produce unintended side effects.
+- There is a delay between Cred being realized and on-chain tokens being awarded for a player's Cred.
+- The mechanism that calculates token scores based on contributions does not know about or take into account in-game points from token burning.
 
-World of Ethereum
-- hard rules and data (non-discretionary)
+### The value of a price
 
-In-game World (in this example: SourceCred)
-- subjective oracle to Ethereum contracts (discretionary)
-
-### Primary vs Secondary Accounting
-
-Does the off-chain world of the game view itself as the primary game with the on-chain market merely as a gateway to the game, or is the on-chain token ledger the main source of truth and is the off-chain world a temporary subjective game that expresses a perspective on the value before being realized on-chain via a tangible asset?
-- Token market as a gateway to the game.
-- Game as a subjective oracle to provide information to the token market.
-- Token market as a subjective expression of the world's option on the value of the game.
-
-### The Value of a Price
+The market price is an expression of the community's productivity. The market prices the Grain for the internal community. The productivity of the community (and/or in-game features and/or FOMO) is the valuable thing people want to pay for. If the community is producing value, people can participate through the market. If it's easier to participate through mechanisms outside of the market, however, then people will just do that instead and the market will lose it's value as a pricing mechanism. When this happens, things get weird... 
 
 The thing with tokens on a bonding curve is that they're only worth the underlying collateral and/or the market price. So if you mint more Cred that will lead to more tokens, which will dilute current token holders. So there's no reason to hold tokens. Beyond that, once you burn tokens for boosting you deflate the supply, making current (and soon to be minted) tokens more valuable. So **the trick is making sure people want to buy and use tokens because when they do, they put collateral in the market without increasing the token supply.** The biggest risk here is actually that creating too much Cred and not having enough buyers will dilute the value of tokens, making people not want to contribute to earn them, making people not want to buy them to incentivize contributors.
 
@@ -119,45 +143,23 @@ The current purpose of tokens is price discovery. It's a proxy for the value of 
 
 If you just use ETH to boost, then you need a mechanism to redeem ETH. ETH would be locked in a contract on-chain, and as people play the game off-chain they would earn rights to unlock the ETH on-chain. What is the price/value of the off-chain points/rights? How much boosting do you get per ETH? How do you actually grant someone the ability to unlock ETH out of the staking/boosting pool on-chain? This requires a token with price discovery.
 
-### Random Stuff
+
+# Subjective vs Objective
+
+The world of on-chain activity is verifiable and concrete. The world of off-chain gameplay is subjective and somewhat opaque. Having transparency into the off-chain game is going to be essential for on-chain token holders to appropriately defend themselves against market collapse. This is especially important if secondary on-chain activity drives demand for tokens outside of the burn/redeem model. These token holders/users will expect their tokens to retain value/utility outside of the dynamics of the off-chain in-game economy. 
+
+World of Ethereum
+- hard rules and data (non-discretionary)
+
+In-game World (in this example: SourceCred)
+- subjective oracle to Ethereum contracts (discretionary)
+
+# Random Stuff
+
+> Talk about how the supply schedule is super important as well as various governance mechanisms (voting, court, validators) that can ensure that minting is done in a fair and reasonable way.
 
 Financial rewards affect decision making, but ultimately money is a constraint on your ability to do things; you use it as a sort of action potential (power), but its not intrinsically valuable (other than as a means towards other ends). In practice DAOs open pathways to achieve ends (to self actualize individually and as groups) without necessitate money as an intermediary. Money/tokens is just a tool to transfer value between systems.
 
 > The internet of value is data and design patterns.
-
-
-## Next Steps
-
-Draw diagrams
-
-Write out text
-
-Write a spec
-
-Write CadCAD model
-
-- how different types of gaming might happen on the project?
-- what if lots of XP and things get crazy
-- what if lots of people cash out at once
-- what if people boost a lot in a week
-
-What is the issuance model?
-
-- how much to mint?
-- when to mint?
-
-Grain 
-
-Shadow Grain
-
-Activity level
-
-Issuance rate (based on activity level - maybe also fast/slow)
-
-Also dependent on the liquidity level of Uniswap (because that affects how much the price moves)
-
-- ETH
-- Grain
-- Liquidity
 
 > Key things are productivity, issuance relation to productivity, the liquidity or the market, and the opinion of the market on the productivity.
