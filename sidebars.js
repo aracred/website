@@ -10,7 +10,16 @@ module.exports = {
       'designGoals',
       'systemOverview',
       'tokenOverview',
-      'tokenSupply',
+      {
+        type: 'category',
+        label: 'Token Supply',
+        items: [
+          'tokenSupply',
+          'valueMeasurement',
+          'tokenMinting',
+          'tokenAllocation'
+        ],
+      },
       'aracredModeling'
     ],
     Deployment: [
