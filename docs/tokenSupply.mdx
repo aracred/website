@@ -21,6 +21,13 @@ import TabItem from '@theme/TabItem';
 }>
     <TabItem value="token-supply-overview">
         <img alt="Token Supply Overview" src={useBaseUrl('img/token-supply-overview.png')} />
+        <h2>Legend</h2>
+        <p><strong>`m`</strong> for measurement. This is the red line and it represents the raw (positive) of the KPI.</p>
+        <p><strong>`k`</strong> is the cumulative sum. It is purple and represents the positive monotonic (going up) cumulative sum of the KPI over time.</p>
+        <p><strong>`f`</strong> is an intuition of a measure of value (measuring)</p>
+        <p><strong>`g`</strong> enforces a limiting factor and is derived from the property being enforced (<strong>`g`</strong> is not fixed, dependent on what is being limited) (minting)</p>
+        <p><strong>`allocation`</strong> is the distribution policy (harvest). This is up to the community, but if <strong>`f`</strong> and <strong>`g`</strong> are right this is fine because we already figured out how many tokens to mint (the hard part)</p>
+        <blockquote>Note: <strong>`p`</strong> is not price, it is a mapping between signals</blockquote>
     </TabItem>
     <TabItem value="token-supply-measurement">
         <img alt="Token Supply Measurement" src={useBaseUrl('img/token-supply-measurement.png')} />
@@ -46,17 +53,21 @@ import TabItem from '@theme/TabItem';
   ]
 }>
     <TabItem value="token-supply-overview">
-        <img alt="Token Supply Overview" src={useBaseUrl('img/token-supply-overview.png')} />
+        <img alt="Token Supply Overview" src={useBaseUrl('img/token-supply-overview-diagram.png')} />
+        <p>Coming soon!</p>
     </TabItem>
     <TabItem value="token-supply-measurement">
-        <img alt="Token Supply Measurement" src={useBaseUrl('img/token-supply-measurement.png')} />
+        <img alt="Token Supply Measurement" src={useBaseUrl('img/token-supply-measurement-diagram.png')} />
+        <p>Coming soon!</p>
     </TabItem>
     <TabItem value="token-supply-policy">
-        <img alt="Token Supply Policy 1" src={useBaseUrl('img/token-supply-policy-1.png')} />
-        <img alt="Token Supply Policy 2" src={useBaseUrl('img/token-supply-policy-2.png')} />
+        <img alt="Token Supply Policy 1" src={useBaseUrl('img/token-supply-policy-1-diagram.png')} />
+        <img alt="Token Supply Policy 2" src={useBaseUrl('img/token-supply-policy-2-diagram.png')} />
+        <p>Coming soon!</p>
     </TabItem>
     <TabItem value="token-supply-issuance">
-        <img alt="Token Supply Issuance" src={useBaseUrl('img/token-supply-issuance.png')} />
+        <img alt="Token Supply Issuance" src={useBaseUrl('img/token-supply-issuance-diagram.png')} />
+        <p>Coming soon!</p>
     </TabItem>
 </Tabs>
 
@@ -74,81 +85,41 @@ export const Highlight = ({children, color}) => (
   </h2>
 );
 
-> First get people's intuition right
-
-> Then segment out problems
-
-> Then understand what's flexible and subjective and what needs to be mathematically defined
-
 # How much do we mint and how often?
 
-> Goal: tokens represent the value created by the community. 
+> Goal: make tokens represent the value created by the community. 
 
-At the end of the day, this is the most important part of the system. Mint too much and inflation kills the market. Mint too little and people aren't incentivized to contribute. How do we figure this out?
+The process of minting tokens is arguably the most important part of the system. Mint too much and inflation kills the market. Mint too little and people aren't incentivized to contribute. How do we figure this out?
 
 If the goal is for tokens to be representative of the value created by the community, then the cumulative sum of all tokens minted needs to represent the cumulative amount of value created by the community.
 
 <Highlight color="purple">Measuring</Highlight>
 
-What is valuable to us?
+### TL;DR: Real-world process of noisy signals ⇒ processing ⇒ number go up.
 
-We can define this cumulative sum (the thing we care about) as a positive KPI that we want it to go up. As thing we care about goes up, then we mint tokens in proportion to that thing. Number go up!
+The goal of AraCred is to recognize and reward contributions. What is valuable will be different for each project. As such we need a system that generally tracks engagement and activity, but also allows the community to decide what is the most important to them.  
 
-Pick a way to represent the phenomenon you want ([https://youtu.be/cpHWegbGgWc?t=401](https://youtu.be/cpHWegbGgWc?t=401))
-- respect the process of making up numbers rigorously
-- what is "valuable" is a subjective thing
-- number needs to be positive and get bigger as things get better (can be a negative measure transformed into a positive number that meets the domain constraints)
+More concretely this looks like creating metrics for all of the complex things that humans do. These metrics can then be combined to create a cumulative KPI that represents "value," as it's defined by that community. This reduces the "what is value" problem into a "number go up" problem. As the thing we care about goes up, we can then mint tokens proportionately.
 
-State the subjective goal
-- supply / KPI relationship
-- supply needs to be bound to the KPI
+While it would be great if this was simple, it is not. It requires clearly stating an objective and knowing what you want to have happen. This is often the hardest part. The world, or at least your slice of it, needs to want the "value KPI" to be high otherwise the token isn't going to be valuable. 
 
-The ability to construct the relationships is not the same as knowing what KPI to drive what you want to have happen
-- You need to be able to clearly state your objective.
-- Tokens need to be dominated by a measure ⇒ drive towards equilibrium
+If you construct this correctly:
+- The KPI should represent what the community views as valuable.
+- The token should be directly connected to that KPI.
+- The policy should enforce the relationship of the token supply to the KPI so that when value creation goes up, the KPI goes up, and more tokens are minted.
 
-The world needs to want the KPI to be high, otherwise the token isn't going to be valuable. 
+A few words of warning:
+- If `F` is gamable and/or `M` is not valuable, then the token will not be super valuable.
+- The "spirit of `F`" is essential. This way you'll be able to clearly recognize an exploit vs the game itself. This way you'll know if you need to adjust the game, or if there's a bad actor that needs to be adjusted.
+- It's essential that you can change the system if/when someone figures out how to game it or if/when what the community views as valuable changes. 
 
-Price is how valuable the world thinks the KPI is worth, because the policy enforces the relationship of the token supply to the KPI. If KPI go up, demand go up, token price go up.
-- if F is gamable and M is not valuable, then token not super valuable
-- need to be able to change the system when someone figures out how to game it (SourceCred will help with this)
-- The "spirit of F" is essential so that you can recognize an exploit vs the game itself - then can adjust to maintain F
-
-General pattern is solving the control theory problem
-- want a policy that goes to 1 in the limit, but is not at 1 at any given time
-
-Creates a family of things that will make sense, but some that don't, and the similar use-cases that work will emerge. 
-
-Need to figure out what the signals are that drive the policy
-- new users
-- money in
-- Cred activity
+So... how do we actually do this? Well first, we need to start to figure out what we consider to be "valuable." What signals do we want to drive the token minting policy?
+- new users?
+- money in the DAO?
+- SourceCred activity?
 - etc...
 
-What are we actually controlling?
-- Monetary policy of the system
-- DAO needs the ability to change the policy
-
-m for measurement
-- red: raw signal (positive)
-
-k is the cumulative sum
-- purple: positive and monotonic (going up)
-
-Real-world process of noisy signals ⇒ processing ⇒ number go up
-- processing: scalar positive measure
-- monotonic sum of scalar positive measure
-
-`f` is an intuition of a measure of value (measuring)
-
-`g` enforces a limiting factor and is derived from the property being enforced (g is not fixed, dependent on what is being limited) (minting)
-
-`allocation` is the distribution policy (harvest)
-- this is up to the community, but if `f` and `g` are right this is fine because we already figured out how many tokens to mint (the hard part)
-
-p is not price
-- mapping between signals
-
+> Note: you can use a single signal for your "value KPI" or you can use a combination of signals. The important part here is that they represent the things that the community cares about. Once you determine _what_ you think is valuable and _why_, then the challenge is using the best tools available to measure that value creation. We really like SourceCred for this task, however, there are many other tools you may want to use in this process. 
 
 <Highlight color="red">Minting</Highlight>
 
@@ -163,6 +134,9 @@ The system isolates 1 from 3 via 2 (the minting policy). This means that 1 and 3
 
 If minting relates to supply, then we need a policy based on m and k
 - deta_s_t is a policy function of the previous k_t s_t
+
+General pattern is solving the control theory problem
+- want a policy that goes to 1 in the limit, but is not at 1 at any given time
 
 <Highlight color="purple">Allocation</Highlight>
 
