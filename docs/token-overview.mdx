@@ -97,69 +97,16 @@ This all assumes that:
 
 # The Community Economy
 
-If in-game points and/or Cred can be used to directly realize value outside of the system that awards tokens for contributions (Cred) then the entire system breaks. In governance systems this would be called bribery as it's introducing incentives outside of the rules of the game. In the context of AraCred this could be considered "innovation," however it is discouraged as it is likely to introduce recursive feedback loops and/or misaligned incentives among players. 
+If the AraCred mechanisms are correct, then this should be the most important part of the system. If the community is creating real value the token price should reflect that. This is the goal.
+
+The community is free to express what they feel is valuable, how they want to measure that value, and the tools they want to do so. We, obviously, recommend using SourceCred to measure contributions to code repos and chats, but it's up to you. The most important part is that this process of measuring value creation happens here. It has to happen _before_ the token minting process. This way the minting process can take into consideration all the different value measurements a community might choose to create, and then tokens can be representative of that process as a whole. If you arbitrarily mint tokens outside of this system (say via a random vote in the DAO) you will likely disrupt the link between token supply and value creation. 
 
 # The Minting Process
 
-The governance mechanism that approves the minting of tokens could be completely automated, trust but verify (via a vote, council, or court), or require an explicit approval from token holders.
-
-The model is more the issuance policy of the community:
-- Token minting governance/security
-- The policy of the community affects the market's perception of the value of the token
-
-The modeling relates to the policy problem (Grain supply governance) rather than the engineering problem (architecture)
-
-### Balances of Power 
-
-There's kind of a natural interplay between the governance/management of the off-chain game and the on-chain token holders. 
+The governance mechanism that approves the minting of tokens could be completely automated, trust but verify (via a vote, council, or court), or require an explicit approval from token holders. The quality of the token minting policy will affects the market's perception of the value of the token. This creates a natural interplay between the governance/management of the off-chain game and the on-chain token holders. 
 - If the off-chain game makes a request for too many tokens and/or changes the issuance policy to something unreasonable on-chain token holders can vote against the minting.
 - If the on-chain token holders become too much of a bother the off-chain system can change the supply algorithm and/or fork the on-chain token supply to cut-out obnoxious token holders.
 
 # The Ethereum Market
 
-For the market, what really matters is the supply of tokens going into and out of the market. To simplify things we can say that:
-- Tokens are _only_ minted from off-chain activity.
-- Once tokens are minted there is some demand to use them in the World of Ethereum (WoE).
-- When tokens are burned users either get cash out of the curve or in-game features/points.
-- In-game points can only be used in-game and cannot be redeemed directly for on-chain tokens.
-- When in-game points are used to unlock features, boost, or whatever else there is a delay between that conversion event and Cred being realized.
-- In-game points should not initially be used for anything outside of the game as that could potentially introduce recursive feedback loops. For example: if the in-game points can be minted via multiple mechanisms that would add complexity. Furthermore, if Cred is used to mint multiple on-chain tokens via multiple mechanisms/systems, the composition of these mechanisms as a whole is likely to produce unintended side effects.
-- There is a delay between Cred being realized and on-chain tokens being awarded for a player's Cred.
-- The mechanism that calculates token scores based on contributions does not know about or take into account in-game points from token burning.
-
-### The value of a price
-
-The market price is an expression of the community's productivity. The market prices the Grain for the internal community. The productivity of the community (and/or in-game features and/or FOMO) is the valuable thing people want to pay for. If the community is producing value, people can participate through the market. If it's easier to participate through mechanisms outside of the market, however, then people will just do that instead and the market will lose it's value as a pricing mechanism. When this happens, things get weird... 
-
-The thing with tokens on a bonding curve is that they're only worth the underlying collateral and/or the market price. So if you mint more Cred that will lead to more tokens, which will dilute current token holders. So there's no reason to hold tokens. Beyond that, once you burn tokens for boosting you deflate the supply, making current (and soon to be minted) tokens more valuable. So **the trick is making sure people want to buy and use tokens because when they do, they put collateral in the market without increasing the token supply.** The biggest risk here is actually that creating too much Cred and not having enough buyers will dilute the value of tokens, making people not want to contribute to earn them, making people not want to buy them to incentivize contributors.
-
-*So you actually want and need more buyers in order for the market to function because buyers will burn their tokens and leave collateral in the redemption pool for contributors.*
-
-Without organic price discovery as well as a mint/burn mechanism you can't actually create a token market.
-
-The current purpose of tokens is price discovery. It's a proxy for the value of engaging with the players in a game. You can achieve this in two ways:
-- Keep the price of tokens fixed, but the supply dynamic. This way as you mint/burn Grain it's value is based on the amount of value in the collateral pool (1 token = collateral pool / total token supply).
-- Put tokens on a bonding curve so that as demand increases and people buy (thus increasing supply) the price moves upward (and not down) because you're expanding the pie (collateral pool) and not diluting current holders (as would happen if you minted Grain against a fixed pool of funds).
-
-If you just use ETH to boost, then you need a mechanism to redeem ETH. ETH would be locked in a contract on-chain, and as people play the game off-chain they would earn rights to unlock the ETH on-chain. What is the price/value of the off-chain points/rights? How much boosting do you get per ETH? How do you actually grant someone the ability to unlock ETH out of the staking/boosting pool on-chain? This requires a token with price discovery.
-
-
-# Subjective vs Objective
-
-The world of on-chain activity is verifiable and concrete. The world of off-chain gameplay is subjective and somewhat opaque. Having transparency into the off-chain game is going to be essential for on-chain token holders to appropriately defend themselves against market collapse. This is especially important if secondary on-chain activity drives demand for tokens outside of the burn/redeem model. These token holders/users will expect their tokens to retain value/utility outside of the dynamics of the off-chain in-game economy. 
-
-World of Ethereum
-- hard rules and data (non-discretionary)
-
-In-game World (in this example: SourceCred)
-- subjective oracle to Ethereum contracts (discretionary)
-
-# Random Stuff
-
-> Talk about how the supply schedule is super important as well as various governance mechanisms (voting, court, validators) that can ensure that minting is done in a fair and reasonable way.
-
-Financial rewards affect decision making, but ultimately money is a constraint on your ability to do things; you use it as a sort of action potential (power), but its not intrinsically valuable (other than as a means towards other ends). In practice DAOs open pathways to achieve ends (to self actualize individually and as groups) without necessitate money as an intermediary. Money/tokens is just a tool to transfer value between systems.
-
-> The internet of value is data and design patterns.
-
-> Key things are productivity, issuance relation to productivity, the liquidity or the market, and the opinion of the market on the productivity.
+The market price for tokens is entirely dependent on the context of each AraCred instance. The DAO design you use for this will greatly affect the pricing mechanisms that the market uses to express it's opinion of the token's value. Beyond this, however, AraCred will work without a market. You can simply use it to recognize contributors and reward them with governance rights in the DAO. This allows communities to DAOify immediately, but monetize gradually, if ever.  
