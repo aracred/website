@@ -125,57 +125,21 @@ So... how do we actually do this? Well first, we need to start to figure out wha
 
 How do we maintain a relationship between our measure of value and our continuous token supply? 
 
-The control problem (`g`) is the most important part.  
-- `f` is a business problem (see linked video)
-- `g` is a math problem
-- `allocation` is a governance problem
+The control problem (`g`) is where we actually mint tokens. 
 
-The system isolates 1 from 3 via 2 (the minting policy). This means that 1 and 3 can be flexibly, but 2 needs to be rooted in a solid cryptoeconomic policy. 
+  1. `f` is a business problem (see linked video)
+  2. `g` is a math problem
+  3. `allocation` is a governance problem
 
-If minting relates to supply, then we need a policy based on m and k
-- deta_s_t is a policy function of the previous k_t s_t
+> This system isolates 1 from 3 via 2 (the minting policy). 1 and 3 can express subjective preferences, but 2 needs to be rooted in a solid cryptoeconomic policy. 
 
-General pattern is solving the control theory problem
-- want a policy that goes to 1 in the limit, but is not at 1 at any given time
+We're solving a control theory problem. We want a policy that goes to 1 in the limit, but is not at 1 at any given time. This gives the system properties where it can be modeled as if the minting relates to the "value KPI," but doesn't quite... allowing it to oscillate around the "value KPI" in a way that makes it harder to game.
+
+Minting is a statement about a limit.
+- You can get a mixture of flexibility and assertion through limiting properties. 
+- Keeping the limiting factor as a limiting policy gives it the flexibility to oscillate around the real value, giving the system the ability to modulate as things change.
+- Limiting behavior gives the system more dynamic evolutionary properties that will allow it to adapt to real-world fluctuations. 
 
 <Highlight color="purple">Allocation</Highlight>
 
-How do we want to allocate tokens after we mint them?
-
-Minting is not business logic, it's a statement about a limit.
-- You can get a mixture of flexibility and assertion through limiting properties 
-- Need to make it so that people get the idea, but without having to do it themselves
-- Keeping the limiting factor as a limiting policy gives it flexibility to oscilate around the real value, giving the system the ability to modulate as things change
-- If you want the system to have good dynamic evolutionary properties need to talk about them in terms of limiting behavior 
-
-Could mint into a vault of Grain
-
-Then have a policy (slow/fast) to then release that to players (vesting)
-
-DAO can design
-
-slow/fast as community vesting or at the individual level
-
-# Notes
-
-Control theory
-- controlling a physical process and driving it towards desired properties
-
-> Talk about how the supply schedule is super important as well as various governance mechanisms (voting, court, validators) that can ensure that minting is done in a fair and reasonable way.
-
-Things can be unbounded without actually being unbounded (percentages)
-
-# Case Study: ETH2
-
-measure KPI based on gas because gas is a measure of productivity of the network
-
-want utilization value to grow relative to share of usage
-
-more use cases drive demand, but gas is the floor
-- swap gas for cred and we have a more fuzzy model of the same system
-
-Cred for a SaaS project
-- `f` as revenue of the community
-- mint tokens based on belief of future revenue production
-
-time is a very very important aspect of these things
+How do we want to allocate tokens after we mint them? This is really up to each community. You could just give people their tokens, you could have a vesting schedule, or something else entirely. 
