@@ -62,7 +62,7 @@ This is very important as we need the right scope to asses things. Beyond just t
 
 For the purposes of this exercise the in-game economy is treated as a black box. We assume that an algorithm that gives players points based on rules of a game is configured to the satisfaction of players and that it produces scores that we can mint tokens from. This could be SourceCred, a simple nomination bot, or any other type of system.
 
-### <Highlight color="pink">Token Governance</Highlight>
+### <Highlight color="orange">Token Governance</Highlight>
 
 *The Access Rights section in the top of the diagram.*
 
@@ -77,7 +77,7 @@ The governance mechanism for minting and burning of tokens could be any of the f
 - Multi-sig
 - DAO
 
-### <Highlight color="orange">On-chain Token Market</Highlight>
+### <Highlight color="purple">On-chain Token Market</Highlight>
 
 The primary token market is assumed to be an automated market mechanism such as a [bonding curve](https://discourse.sourcecred.io/t/bonding-curve-references/271). This solves the bootstrapping problem allowing the market to exist in a permissionless way. [Uniswap](https://uniswap.exchange/) is the most readily available of these mechanisms, but this could also be an [Aragon Fundraising DAO](https://fundraising.aragon.black/) or some other type of market maker. The benefit of modeling this using Uniswap is that it is a generic mechanism that allows anyone to setup a token market regardless of the on-chain contract/system they use to mint tokens.
 
