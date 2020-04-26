@@ -46,7 +46,7 @@ export const Highlight = ({children, color}) => (
   </h2>
 );
 
-# Nested Economic Systems
+## Nested Economic Systems
 
 Each of these local systems has contextual value, but none of them have a global sense of value:
 - Cred: a locally shared sense of value creation and evaluation.
@@ -56,13 +56,13 @@ Each of these local systems has contextual value, but none of them have a global
 
 This is very important as we need the right scope to asses things. Beyond just the things, however, is their relationship to each other. It's awkward to jump from cred to fiat money due to the systems that are in between them (at least currently). For value networks to evolve in a stable equilibrium they need to have a sense of place. Then as they start to grow they can interact with larger and larger systems. 
 
-<Highlight color="blue">In-game Economy</Highlight>
+### <Highlight color="blue">In-game Economy</Highlight>
 
 *The In-game Community Economy bubble on the top left.*
 
 For the purposes of this exercise the in-game economy is treated as a black box. We assume that an algorithm that gives players points based on rules of a game is configured to the satisfaction of players and that it produces scores that we can mint tokens from. This could be SourceCred, a simple nomination bot, or any other type of system.
 
-<Highlight color="pink">Token Governance</Highlight>
+### <Highlight color="orange">Token Governance</Highlight>
 
 *The Access Rights section in the top of the diagram.*
 
@@ -77,7 +77,7 @@ The governance mechanism for minting and burning of tokens could be any of the f
 - Multi-sig
 - DAO
 
-<Highlight color="orange">On-chain Token Market</Highlight>
+### <Highlight color="purple">On-chain Token Market</Highlight>
 
 The primary token market is assumed to be an automated market mechanism such as a [bonding curve](https://discourse.sourcecred.io/t/bonding-curve-references/271). This solves the bootstrapping problem allowing the market to exist in a permissionless way. [Uniswap](https://uniswap.exchange/) is the most readily available of these mechanisms, but this could also be an [Aragon Fundraising DAO](https://fundraising.aragon.black/) or some other type of market maker. The benefit of modeling this using Uniswap is that it is a generic mechanism that allows anyone to setup a token market regardless of the on-chain contract/system they use to mint tokens.
 
@@ -87,7 +87,7 @@ Some notes on Uniswap V1:
 - An oracle is then needed to get the price of ETH, and then you can easily calculate the "market cap" of that token based on the ETH in the pool.
 - So the value of your pool tokens = market cap of token / your percentage of the pool.
 
-<Highlight color="green">Global Markets</Highlight>
+### <Highlight color="green">Global Markets</Highlight>
 
 The larger game nests economic systems. It's economics all the way down.
 - The in-game economy

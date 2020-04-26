@@ -1,7 +1,7 @@
 ---
 id: tokenSupply
-title: Token Supply
-sidebar_label: Token Supply
+title: Token Supply Overview
+sidebar_label: Token Supply Overview
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl'; // Add to the top of the file below the front matter.
@@ -21,7 +21,6 @@ import TabItem from '@theme/TabItem';
 }>
     <TabItem value="token-supply-overview">
         <img alt="Token Supply Overview" src={useBaseUrl('img/token-supply-overview.png')} />
-        <h2>Legend</h2>
         <p><strong>`m`</strong> for measurement. This is the red line and it represents the raw (positive) of the KPI.</p>
         <p><strong>`k`</strong> is the cumulative sum. It is purple and represents the positive monotonic (going up) cumulative sum of the KPI over time.</p>
         <p><strong>`f`</strong> is an intuition of a measure of value (measuring)</p>
@@ -85,7 +84,7 @@ export const Highlight = ({children, color}) => (
   </h2>
 );
 
-# How much do we mint and how often?
+## How much do we mint and how often?
 
 > Goal: make tokens represent the value created by the community. 
 
@@ -93,9 +92,9 @@ The process of minting tokens is arguably the most important part of the system.
 
 If the goal is for tokens to be representative of the value created by the community, then the cumulative sum of all tokens minted needs to represent the cumulative amount of value created by the community.
 
-<Highlight color="purple">Measuring</Highlight>
+### <Highlight color="purple">Measuring</Highlight>
 
-### TL;DR: Real-world process of noisy signals ⇒ processing ⇒ number go up.
+> TL;DR: Real-world process of noisy signals ⇒ processing ⇒ number go up.
 
 The goal of AraCred is to recognize and reward contributions. What is valuable will be different for each project. As such we need a system that generally tracks engagement and activity, but also allows the community to decide what is the most important to them.  
 
@@ -121,7 +120,7 @@ So... how do we actually do this? Well first, we need to start to figure out wha
 
 > Note: you can use a single signal for your "value KPI" or you can use a combination of signals. The important part here is that they represent the things that the community cares about. Once you determine _what_ you think is valuable and _why_, then the challenge is using the best tools available to measure that value creation. We really like SourceCred for this task, however, there are many other tools you may want to use in this process. 
 
-<Highlight color="red">Minting</Highlight>
+### <Highlight color="red">Minting</Highlight>
 
 How do we maintain a relationship between our measure of value and our continuous token supply? 
 
@@ -140,6 +139,6 @@ Minting is a statement about a limit.
 - Keeping the limiting factor as a limiting policy gives it the flexibility to oscillate around the real value, giving the system the ability to modulate as things change.
 - Limiting behavior gives the system more dynamic evolutionary properties that will allow it to adapt to real-world fluctuations. 
 
-<Highlight color="purple">Allocation</Highlight>
+### <Highlight color="purple">Allocation</Highlight>
 
 How do we want to allocate tokens after we mint them? This is really up to each community. You could just give people their tokens, you could have a vesting schedule, or something else entirely. 
