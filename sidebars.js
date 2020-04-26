@@ -25,7 +25,8 @@ module.exports = {
     Deployment: [
       'manualDeployment',
       'userGuide',
-      'faq'
+      'faq',
+      'communityResources'
     ],
     Contributing: [
       'contributing',
