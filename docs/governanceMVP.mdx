@@ -1,0 +1,111 @@
+---
+id: governanceMVP
+title: Governance MVP
+sidebar_label: Governance MVP
+---
+
+import useBaseUrl from '@docusaurus/useBaseUrl'; // Add to the top of the file below the front matter.
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+## Whiteboard Session
+
+<Tabs
+  defaultValue="aracred-smr-overview"
+  values={[
+    { label: 'Overview', value: 'aracred-smr-overview', },
+    { label: 'State', value: 'aracred-smr-state', },
+    { label: 'Methods', value: 'aracred-smr-methods', },
+    { label: 'Roles', value: 'aracred-smr-roles', },
+  ]
+}>
+    <TabItem value="aracred-smr-overview">
+        <img alt="AraCred SMR Overview" src={useBaseUrl('img/aracred-smr-overview.JPG')} />
+        <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/wBlBcLkWzqo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <blockquote>Note: the picture comes in about half way through the video.</blockquote>
+    </TabItem>
+    <TabItem value="aracred-smr-state">
+        <img alt="AraCred SMR State" src={useBaseUrl('img/aracred-smr-state.JPG')} />
+        <blockquote>The state is not the system, it's the reflection of the thing IRL at a given point in time. This is not limited to just blockchain stuff! All the things in the system as a whole.</blockquote>
+        <ul>
+            <li>
+                addresses with tokens (Council, AraCred, TimeOut)
+            </li>
+            <li>
+                AraCred codebase (params)
+            </li>
+            <li>
+                AraCred credbase (cred scores)
+            </li>
+            <li>
+                platforms where activity happens (data for SC)
+            </li>
+            <li>
+                DAO (design and state)
+            </li>
+        </ul>
+    </TabItem>
+    <TabItem value="aracred-smr-methods">
+        <img alt="AraCred SMR Methods" src={useBaseUrl('img/aracred-smr-methods.JPG')} />
+        <blockquote>Things that change the state.</blockquote>
+        <ul>
+        <li>add/remove address to role council  (CV - starts off-chain)</li>
+        <li>issue AraCred tokens (execution is council vote)</li>
+        <li>change logic of methods (PR, discussion, council vote)</li>
+        <li>- set cred weights (change how things are measured)</li>
+        <li>- update `project.json` (change what is measured)</li>
+        <li>put someone in timeout (council only)</li>
+        <li>set timeout decay rate (1 day at a time, etc... - requires off-chain actions)</li>
+        <li>contribute (mutates cred state)</li>
+        <li>add methods (council vote)</li>
+        </ul>
+    </TabItem>
+    <TabItem value="aracred-smr-roles">
+        <img alt="AraCred SMR Roles" src={useBaseUrl('img/aracred-smr-roles.JPG')} />
+        <blockquote>Roles are a subset of the state.</blockquote>
+        <p>Council (token holders - no magnitude)</p>
+        <p>AraCred Token holders (SEED, Grain - also has magnitude)</p>
+        <p>Contributor (anyone who has cred - has magnitude)</p>
+        <p>Time Out (time out tokens that decay slowly - has magnitude - reduces cred earning)</p>
+    </TabItem>
+</Tabs>
+
+export const Highlight = ({children, color}) => (
+  <h2>
+    <span
+        style={{
+        backgroundColor: color,
+        borderRadius: '2px',
+        color: '#fff',
+        padding: '0.2rem',
+        }}>
+        {children}
+    </span>
+  </h2>
+);
+
+## AraCred Governance MVP 
+
+We explore a minimum viable institutional design pattern based on a rights, access control paradigm.
+- Roles: bundles of rights determined by "the system state"
+- Methods: actions that can be taken, mutates "the system state" but access or effect may be dependent on roles
+- State: all of the information (not limited to smart contract state)
+
+Lots of things can happen off chain, but for small communities we can still have maintainers, stewards or council members responsible for overseeing faithful execution of processes or parts of processes which are not automated. 
+
+Roles: 
+- Council
+- Token holder
+- Contributor
+- Timeout
+
+### Council and AraCred Token holders
+Council and token holder are pretty standard patterns in DAOs in the wild. 
+
+### Contributor 
+Contributor is defined based on sourcecred portion of the state, anyone who has any cred is a contributor because it means they have participated in the communities production of value according to how that community defines value. 
+
+### Timeout 
+Timeout is an interesting case because it directly recognizes the need for some form of sanctions to manage disputes. We kept it as simple as possible. It has magnitude precisely because sanctions need to be graduated (see Ostrom). Furthermore, we noted that without a precedent for sanctions, the first despite will quickly devolve into a dispute about disputes. This is a better initial condition than "none" because its impossible to have a healthy discussion about dispute resolutions process in the context of resolving a particular dispute. 
+
+Moderation policies are expected to evolve with the communities needs, but also new disputes should be arbitrated with the old process prior to reforming the process whenever possible. Moderation will be very community dependent so its important that this rights/access control paradigm by relative unopinionated about what rights modified by sanctions. We chosen to emphasize a case where no rights are lost permanently, but the period of the sanction is the magnitude of sanction. One could encode other sanction paradigms using special "negative roles" which are generalizations of blacklists. Positive roles can be thought of as generalizations of whitelists.

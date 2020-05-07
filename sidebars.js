@@ -9,12 +9,20 @@ module.exports = {
     Tokeneconomics: [
       'designGoals',
       'systemOverview',
-      'tokenOverview',
+      'governanceMVP',
       {
         type: 'category',
-        label: 'Token Supply',
+        label: 'Token MVP',
         items: [
+          'tokenOverview',
           'tokenSupply',
+        ],
+      },
+      {
+        type: 'category',
+        label: 'Token (V2)',
+        items: [
+          'tokenSupplyV2',
           'valueMeasurement',
           'tokenMinting',
           'tokenAllocation'
