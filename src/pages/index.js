@@ -13,7 +13,7 @@ const features = [
     imageUrl: 'img/new-aragon-logo.png',
     description: (
       <>
-        AraCred lets you provide top-down support to your commuinty while <b>disbursing tokens</b> in a bottom-up manner based on <b>contributions</b> and <b>engagement</b>.    
+        AraCred lets you provide top-down support to your community while <b>disbursing tokens</b> in a bottom-up manner based on <b>contributions</b> and <b>engagement</b>.    
       </>
     ),
   },
@@ -31,7 +31,7 @@ const features = [
     imageUrl: 'img/logo.png',
     description: (
       <>
-        AraCred runs <a href="https://sourcecred.io/">SourceCred</a> on all the things, then mints tokens for contributors in an <a href="https://aragon.org">Aragon</a> DAO. This way your community is recognized, rewarded, and empowered based on their contributions. 
+        AraCred runs <a href="https://sourcecred.io/">SourceCred</a> on all the things, then mints tokens for contributors in an <a href="https://aragon.org">Aragon</a> <dfn id="dfn-dao"><abbr title="Decentralized Autonomous Organization">DAO</abbr></dfn>. This way your community is recognized, rewarded, and empowered based on their contributions. 
       </>
     ),
   },
